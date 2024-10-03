@@ -1,6 +1,22 @@
-<div class="container">
-  <!-- ASCII text in the top-right corner -->
-  <aside class="ascii-image ascii-text" id="ascii-text">
+<div class="grid-container">
+  <!-- Top Links (side by side) -->
+  <div class="top-links">
+    <div class="link-item">
+      <a href="https://docs.saucelabs.com" target="_blank" onmouseover="changeImage('/public/images/img1.jpeg')" onfocus="changeImage('/public/images/img1.jpeg')">
+        <span class="arrow">↗</span> docs.saucelabs.com
+      </a>
+      <p>Docusaurus Kubernetes GCP</p>
+    </div>
+    <div class="link-item">
+      <a href="https://saucelabs.com" target="_blank" onmouseover="changeImage('/public/images/img2.jpeg')" onfocus="changeImage('/public/images/img2.jpeg')">
+        <span class="arrow">↗</span> saucelabs.com
+      </a>
+      <p>Next.js Vercel LaunchDarkly Segment</p>
+    </div>
+  </div>
+
+  <!-- ASCII Text -->
+  <aside class="ascii">
     <pre>
       (\___/)
       ( • - •)
@@ -8,8 +24,8 @@
     </pre>
   </aside>
 
-  <!-- Title and Main Paragraph -->
-  <section class="center-content">
+  <!-- Main Title and Paragraph -->
+  <div class="description">
     <h1>DEV</h1>
     <p>
       My approach to development prioritizes tools that meet developer and user needs,
@@ -21,59 +37,61 @@
       fostering collaborative environments, emphasizing mutual understanding and
       cross-team work.
     </p>
-  </section>
+  </div>
 
-  <!-- Top Links -->
-  <nav class="top-links">
-    <a href="#" onmouseover="changeImage('/public/images/img1.jpeg')" onclick="changeImage('/public/images/img1.jpeg')" class="link">
-      ↗ de la norma al nombre
-    </a>
-    <a href="#" onmouseover="changeImage('/public/images/img2.jpeg')" onclick="changeImage('/public/images/img2.jpeg')" class="link">
-      ↗ docs.saucelabs.com
-    </a>
-  </nav>
+  <!-- Image -->
+  <div class="image">
+    <img src="/public/images/img1.jpeg" alt="Image 1" id="image-left" />
+  </div>
 
-  <!-- Bottom Grid with Image and Links -->
-  <section class="bottom-grid">
-    <figure class="left-image">
-      <img src="/public/images/img1.jpeg" alt="Image 1" id="image-left" />
-    </figure>
-    <a href="#" onmouseover="changeImage('/public/images/img3.jpeg')" class="link">
-      ↗ other link
-    </a>
-    <a href="#" onmouseover="changeImage('/public/images/img3.jpeg')" class="link">
-      ↗ de la norma al nombre
-    </a>
-  </section>
+  <!-- Bottom Links (side by side) -->
+  <div class="bottom-links">
+    <div class="link-item">
+      <a href="https://netzkunst.berlin/metaphors/" target="_blank" onmouseover="changeImage('/public/images/img3.jpeg')" onfocus="changeImage('/public/images/img3.jpeg')">
+        <span class="arrow">↗</span> netzkunst.berlin/metaphors
+      </a>
+      <p>Nuxt.js</p>
+    </div>
+    <div class="link-item">
+      <a href="https://netzkunst.berlin/cc" target="_blank" onmouseover="changeImage('/public/images/img3.jpeg')" onfocus="changeImage('/public/images/img3.jpeg')">
+        <span class="arrow">↗</span> netzkunst.berlin/cc
+      </a>
+      <p>Vue.js Zotero</p>
+    </div>
+  </div>
 
-  <!-- Moving GIF (absolute positioning) -->
+  <!-- Moving GIF -->
   <figure class="moving-gif">
     <img src="/public/images/nova-licking-paw.gif" alt="Nova the cat licking her paw gif" />
   </figure>
 </div>
 
 <script>
-  // Change img when hover or click on a link
+  // Change image on hover and focus
   function changeImage(imageUrl) {
     const imageElement = document.getElementById('image-left');
     imageElement.src = imageUrl;
   }
 
-  // Random gif movement with reduced speed
+  // Random GIF movement
   function moveRandomly() {
     const gif = document.querySelector('.moving-gif');
-    const x = Math.random() * (window.innerWidth - gif.offsetWidth);
-    const y = Math.random() * (window.innerHeight - gif.offsetHeight);
+    const maxX = window.innerWidth - gif.offsetWidth;
+    const maxY = window.innerHeight - gif.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
     gif.style.left = `${x}px`;
     gif.style.top = `${y}px`;
   }
 
-  // Move the gif every 10 seconds for smoother movement
-  setInterval(moveRandomly, 10000);
+  // Move the gif every 7 seconds with smoother movement
+  setInterval(moveRandomly, 7000);
 
-  // ASCII movement to the right and back
+  // ASCII movement
   function moveAsciiInOut() {
-    const ascii = document.getElementById('ascii-text');
+    const ascii = document.querySelector('.ascii');
     ascii.style.transform = 'translateX(50px)';
     setTimeout(() => {
       ascii.style.transform = 'translateX(0px)';
@@ -85,87 +103,121 @@
 </script>
 
 <style>
-  /* Body and Container Styles */
+  /* Main Section Styling */
   body {
-    background: linear-gradient(135deg, #A3FFB8, #C0B5F2);
+    background: linear-gradient(135deg, #A3FFB8, #C0B5F2); /* Background restored */
     margin: 0;
-    font-family: "Nunito", sans-serif;
+    padding: 0;
   }
 
-  .container {
+  h1 {
+    margin: 0;
+    color: #5E00FF;
+  }
+
+  /* Grid Container */
+  .grid-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas:
+      "top-links top-links . . ascii ascii"
+      ". description description description description ."
+      ". description description description description ."
+      "image description description description description ."
+      "image . bottom-links bottom-links . . "
+      "image . bottom-links bottom-links . . "
+      ". . . . . .";
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 
-  /* ASCII text placed at the top right corner */
-  .ascii-text {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  /* Assigning grid areas */
+  .top-links {
+    grid-area: top-links;
+    display: flex; /* Flex for side-by-side alignment */
+    justify-content: flex-start;
+  }
+
+  .bottom-links {
+    grid-area: bottom-links;
+    display: flex; /* Flex for side-by-side alignment */
+    justify-content: flex-end;
+  }
+
+  .ascii {
+    grid-area: ascii;
+    text-align: right;
     font-family: monospace;
+    transition: transform 0.3s ease-in-out; /* Add transition for ASCII movement */
     font-size: 14px;
   }
 
-  /* Center Content (Title and Paragraph) */
-  .center-content {
-    text-align: center;
+  .description {
+    grid-area: description;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
   }
 
-  /* Top Links in a row */
-  .top-links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  .image {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
   }
 
-  /* Bottom Grid: Image and Links */
-  .bottom-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-  }
-
-  /* Image Styles */
-  .left-image img {
-    width: 169px;
-    height: 215px;
+  .image img {
+    width: 250px; /* Increased image size */
+    height: auto;
     border-radius: 8px;
     background: lightgray 50% / cover no-repeat;
-    background-blend-mode: multiply;
   }
 
-  /* Moving GIF with slower movement */
   .moving-gif {
     position: absolute;
     width: 230px;
-    animation: move 5s infinite alternate;
+    animation: move 7s infinite alternate;
   }
 
   .moving-gif img {
-    width: 230px;
-    height: 329px;
+    width: 100px;
+    height: auto;
+    border-radius: 100px;
   }
 
-  /* Keyframes for smoother gif movement */
-  @keyframes move {
-    0% { top: 0; left: 0; }
-    100% { top: 80%; left: 80%; }
+  .link-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  /* Responsive layout for smaller screens */
+  .arrow {
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+
+  /* Responsive Design */
   @media (max-width: 768px) {
-    .top-links {
+    .grid-container {
+      grid-template-areas:
+        "top-links"
+        "ascii"
+        "description"
+        "description"
+        "image"
+        "bottom-links"
+        "bottom-links";
+      grid-template-rows: auto;
       grid-template-columns: 1fr;
+    }
+
+    .ascii {
       text-align: center;
     }
 
-    .bottom-grid {
-      grid-template-columns: 1fr;
+    .description {
+      text-align: center;
     }
   }
 </style>
