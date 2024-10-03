@@ -1,143 +1,171 @@
 <div class="container">
-  <h1>DEV</h1>
-  <p>
-    My approach to development prioritizes tools that meet developer and user needs,
-    focusing on usability and accessibility while avoiding unnecessary complexity
-    in favor of maintenance, standards, and collaboration.
-    I am driven by curiosity and approach solutions with ongoing experiments driven
-    by data and user feedback.
-    I value clear communication and good documentation as a foundation for
-    fostering collaborative environments, emphasizing mutual understanding and
-    cross-team work.
-  </p>
+  <!-- ASCII text in the top-right corner -->
+  <aside class="ascii-image ascii-text" id="ascii-text">
+    <pre>
+      (\___/)
+      ( • - •)
+      /    > 🌐
+    </pre>
+  </aside>
 
-  <div class="links">
+  <!-- Title and Main Paragraph -->
+  <section class="center-content">
+    <h1>DEV</h1>
+    <p>
+      My approach to development prioritizes tools that meet developer and user needs,
+      focusing on usability and accessibility while avoiding unnecessary complexity
+      in favor of maintenance, standards, and collaboration.
+      I am driven by curiosity and approach solutions with ongoing experiments driven
+      by data and user feedback.
+      I value clear communication and good documentation as a foundation for
+      fostering collaborative environments, emphasizing mutual understanding and
+      cross-team work.
+    </p>
+  </section>
+
+  <!-- Top Links -->
+  <nav class="top-links">
     <a href="#" onmouseover="changeImage('/public/images/img1.jpeg')" onclick="changeImage('/public/images/img1.jpeg')" class="link">
       ↗ de la norma al nombre
     </a>
     <a href="#" onmouseover="changeImage('/public/images/img2.jpeg')" onclick="changeImage('/public/images/img2.jpeg')" class="link">
       ↗ docs.saucelabs.com
     </a>
-    <a href="#" onmouseover="changeImage('/public/images/img3.jpeg')" onclick="changeImage('/public/images/img3.jpeg')" class="link">
+  </nav>
+
+  <!-- Bottom Grid with Image and Links -->
+  <section class="bottom-grid">
+    <figure class="left-image">
+      <img src="/public/images/img1.jpeg" alt="Image 1" id="image-left" />
+    </figure>
+    <a href="#" onmouseover="changeImage('/public/images/img3.jpeg')" class="link">
       ↗ other link
     </a>
-  </div>
+    <a href="#" onmouseover="changeImage('/public/images/img3.jpeg')" class="link">
+      ↗ de la norma al nombre
+    </a>
+  </section>
 
-  <div class="left-image" id="image-left">
-    <img src="/public/images/img1.jpeg" alt="Img 1" />
-  </div>
-
-  <div class="right-image" id="moving-gif">
+  <!-- Moving GIF (absolute positioning) -->
+  <figure class="moving-gif">
     <img src="/public/images/nova-licking-paw.gif" alt="Nova the cat licking her paw gif" />
-  </div>
-
-  <div class="ascii-image ascii-text" id="ascii-text">
-    <pre>
-      (\___/)
-      ( • - •)
-      /    > 🌐
-    </pre>
-  </div>
+  </figure>
 </div>
 
 <script>
   // Change img when hover or click on a link
   function changeImage(imageUrl) {
-    const imageElement = document.getElementById('image-left').querySelector('img');
+    const imageElement = document.getElementById('image-left');
     imageElement.src = imageUrl;
   }
 
-  // Random gif movement
+  // Random gif movement with reduced speed
   function moveRandomly() {
-    const gif = document.getElementById('moving-gif');
+    const gif = document.querySelector('.moving-gif');
     const x = Math.random() * (window.innerWidth - gif.offsetWidth);
     const y = Math.random() * (window.innerHeight - gif.offsetHeight);
     gif.style.left = `${x}px`;
     gif.style.top = `${y}px`;
   }
 
-  // ASCII movement
+  // Move the gif every 10 seconds for smoother movement
+  setInterval(moveRandomly, 10000);
+
+  // ASCII movement to the right and back
   function moveAsciiInOut() {
     const ascii = document.getElementById('ascii-text');
-    ascii.style.transform = 'translateX(100px)';
+    ascii.style.transform = 'translateX(50px)';
     setTimeout(() => {
-      ascii.style.transform = 'translateX(-100px)';
+      ascii.style.transform = 'translateX(0px)';
     }, 3000);
   }
 
-  // Triggers random movement of the gif every 3 seconds
-  setInterval(moveRandomly, 3000);
-
-  // Triggers ASCII movement every 5 sec
+  // Trigger ASCII movement every 5 seconds
   setInterval(moveAsciiInOut, 5000);
 </script>
 
 <style>
+  /* Body and Container Styles */
   body {
     background: linear-gradient(135deg, #A3FFB8, #C0B5F2);
+    margin: 0;
+    font-family: "Nunito", sans-serif;
   }
 
   .container {
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
     position: relative;
   }
 
-  .links {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+  /* ASCII text placed at the top right corner */
+  .ascii-text {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: monospace;
+    font-size: 14px;
   }
 
-  h1 {
-    color: #5E00FF;
+  /* Center Content (Title and Paragraph) */
+  .center-content {
+    text-align: center;
   }
 
-  p {
-    color: #000;
-    max-width: 60vw;
+  /* Top Links in a row */
+  .top-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
-  /* Links Styles */
-  a.link {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+  /* Bottom Grid: Image and Links */
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
   }
 
-  a.link:hover {
-    text-decoration: underline;
-  }
-
-  /* Images Layout */
-  .left-image img, .right-image img {
+  /* Image Styles */
+  .left-image img {
     width: 169px;
     height: 215px;
-    flex-shrink: 0;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
     border-radius: 8px;
     background: lightgray 50% / cover no-repeat;
     background-blend-mode: multiply;
   }
 
-  /* GIF Layout */
-  #moving-gif img {
+  /* Moving GIF with slower movement */
+  .moving-gif {
+    position: absolute;
+    width: 230px;
+    animation: move 5s infinite alternate;
+  }
+
+  .moving-gif img {
     width: 230px;
     height: 329px;
-    flex-shrink: 0;
-    background: linear-gradient(180deg, #C2F4B1 0%, #D3BEF8 100%);
   }
 
-  .ascii-image {
-    top: 50px;
-    right: 50px;
+  /* Keyframes for smoother gif movement */
+  @keyframes move {
+    0% { top: 0; left: 0; }
+    100% { top: 80%; left: 80%; }
   }
 
-  .ascii-text {
-    font-family: monospace;
-    font-size: 18px;
+  /* Responsive layout for smaller screens */
+  @media (max-width: 768px) {
+    .top-links {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .bottom-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
