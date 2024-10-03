@@ -1,0 +1,143 @@
+<div class="container">
+  <h1>DEV</h1>
+  <p>
+    My approach to development prioritizes tools that meet developer and user needs,
+    focusing on usability and accessibility while avoiding unnecessary complexity
+    in favor of maintenance, standards, and collaboration.
+    I am driven by curiosity and approach solutions with ongoing experiments driven
+    by data and user feedback.
+    I value clear communication and good documentation as a foundation for
+    fostering collaborative environments, emphasizing mutual understanding and
+    cross-team work.
+  </p>
+
+  <div class="links">
+    <a href="#" onmouseover="changeImage('/public/images/img1.jpeg')" onclick="changeImage('/public/images/img1.jpeg')" class="link">
+      ↗ de la norma al nombre
+    </a>
+    <a href="#" onmouseover="changeImage('/public/images/img2.jpeg')" onclick="changeImage('/public/images/img2.jpeg')" class="link">
+      ↗ docs.saucelabs.com
+    </a>
+    <a href="#" onmouseover="changeImage('/public/images/img3.jpeg')" onclick="changeImage('/public/images/img3.jpeg')" class="link">
+      ↗ other link
+    </a>
+  </div>
+
+  <div class="left-image" id="image-left">
+    <img src="/public/images/img1.jpeg" alt="Img 1" />
+  </div>
+
+  <div class="right-image" id="moving-gif">
+    <img src="/public/images/nova-licking-paw.gif" alt="Nova the cat licking her paw gif" />
+  </div>
+
+  <div class="ascii-image ascii-text" id="ascii-text">
+    <pre>
+      (\___/)
+      ( • - •)
+      /    > 🌐
+    </pre>
+  </div>
+</div>
+
+<script>
+  // Change img when hover or click on a link
+  function changeImage(imageUrl) {
+    const imageElement = document.getElementById('image-left').querySelector('img');
+    imageElement.src = imageUrl;
+  }
+
+  // Random gif movement
+  function moveRandomly() {
+    const gif = document.getElementById('moving-gif');
+    const x = Math.random() * (window.innerWidth - gif.offsetWidth);
+    const y = Math.random() * (window.innerHeight - gif.offsetHeight);
+    gif.style.left = `${x}px`;
+    gif.style.top = `${y}px`;
+  }
+
+  // ASCII movement
+  function moveAsciiInOut() {
+    const ascii = document.getElementById('ascii-text');
+    ascii.style.transform = 'translateX(100px)';
+    setTimeout(() => {
+      ascii.style.transform = 'translateX(-100px)';
+    }, 3000);
+  }
+
+  // Triggers random movement of the gif every 3 seconds
+  setInterval(moveRandomly, 3000);
+
+  // Triggers ASCII movement every 5 sec
+  setInterval(moveAsciiInOut, 5000);
+</script>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #A3FFB8, #C0B5F2);
+  }
+
+  .container {
+    text-align: center;
+    position: relative;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    color: #5E00FF;
+  }
+
+  p {
+    color: #000;
+    max-width: 60vw;
+  }
+
+  /* Links Styles */
+  a.link {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a.link:hover {
+    text-decoration: underline;
+  }
+
+  /* Images Layout */
+  .left-image img, .right-image img {
+    width: 169px;
+    height: 215px;
+    flex-shrink: 0;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    border-radius: 8px;
+    background: lightgray 50% / cover no-repeat;
+    background-blend-mode: multiply;
+  }
+
+  /* GIF Layout */
+  #moving-gif img {
+    width: 230px;
+    height: 329px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #C2F4B1 0%, #D3BEF8 100%);
+  }
+
+  .ascii-image {
+    top: 50px;
+    right: 50px;
+  }
+
+  .ascii-text {
+    font-family: monospace;
+    font-size: 18px;
+  }
+</style>
