@@ -1,71 +1,195 @@
-<div>
-  <h1>dev</h1>
-  <p>
-    My approach to development prioritizes tools that meet developer and user needs,
-    focusing on usability and accessibility while avoiding unnecessary complexity
-    in favor of maintenance, standards, and collaboration.
-    <br><br>
-    I am driven by curiosity and approach solutions with ongoing experiments driven by data and user feedback.
-    <br><br>
-    I value clear communication and good documentation as a foundation for fostering collaborative
-    environments, emphasizing mutual understanding and cross-team work.
-  </p>
-
-  <!-- External Links and Descriptions -->
-  <div class="links-container">
+<div class="grid-container">
+  <!-- Top Links (side by side) -->
+  <div class="top-links">
     <div class="link-item">
-      <a href="https://docs.saucelabs.com" target="_blank">
+      <a href="https://docs.saucelabs.com/" target="_blank" onmouseover="changeImage('/public/images/docs.png')" onfocus="changeImage('/public/images/docs.png')">
         <span class="arrow">↗</span> docs.saucelabs.com
       </a>
       <p>Docusaurus Kubernetes GCP</p>
     </div>
-
     <div class="link-item">
-      <a href="https://saucelabs.com" target="_blank">
+      <a href="https://saucelabs.com" target="_blank" onmouseover="changeImage('/public/images/saucelabs.png')" onfocus="changeImage('/public/images/saucelabs.png')">
         <span class="arrow">↗</span> saucelabs.com
       </a>
       <p>Next.js Vercel LaunchDarkly Segment</p>
     </div>
+  </div>
 
+  <!-- ASCII Text -->
+  <aside class="ascii">
+    <pre>
+      (\___/)
+      ( • - •)
+      /    > 🌐
+    </pre>
+  </aside>
+
+  <!-- Main Title and Paragraph -->
+  <div class="description">
+    <h1>DEV</h1>
+    <p>
+      My approach to development prioritizes tools that meet developer and user needs,
+      focusing on usability and accessibility while avoiding unnecessary complexity
+      in favor of maintenance, standards, and collaboration.
+      I am driven by curiosity and approach solutions with ongoing experiments driven
+      by data and user feedback.
+      I value clear communication and good documentation as a foundation for
+      fostering collaborative environments, emphasizing mutual understanding and
+      cross-team work.
+    </p>
+  </div>
+
+  <!-- Image -->
+  <div class="image">
+    <img src="/public/images/cc.png" alt="Calculated Control website printscreen" id="image-left" />
+  </div>
+
+  <!-- Bottom Links (side by side) -->
+  <div class="bottom-links">
     <div class="link-item">
-      <a href="https://netzkunst.berlin/metaphors/" target="_blank">
+      <a href="https://netzkunst.berlin/metaphors/" target="_blank" onmouseover="changeImage('/public/images/metaphors.png')" onfocus="changeImage('/public/images/metaphors.png')">
         <span class="arrow">↗</span> netzkunst.berlin/metaphors
       </a>
       <p>Nuxt.js</p>
     </div>
-
     <div class="link-item">
-      <a href="https://netzkunst.berlin/cc" target="_blank">
+      <a href="https://netzkunst.berlin/cc" target="_blank" onmouseover="changeImage('/public/images/cc.png')" onfocus="changeImage('/public/images/cc.png')">
         <span class="arrow">↗</span> netzkunst.berlin/cc
       </a>
       <p>Vue.js Zotero</p>
     </div>
   </div>
 
+  <!-- Moving GIF -->
+  <figure class="moving-gif">
+    <img src="/public/images/nova-licking-paw.gif" alt="Nova the cat licking her paw gif" />
+  </figure>
+</div>
+
+<script>
+  // Change image on hover and focus
+  function changeImage(imageUrl) {
+    const imageElement = document.getElementById('image-left');
+    imageElement.src = imageUrl;
+  }
+
+  // Random GIF movement
+  function moveRandomly() {
+    const gif = document.querySelector('.moving-gif');
+    const maxX = window.innerWidth - gif.offsetWidth;
+    const maxY = window.innerHeight - gif.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    gif.style.left = `${x}px`;
+    gif.style.top = `${y}px`;
+  }
+
+  // Move the gif every 7 seconds with smoother movement
+  setInterval(moveRandomly, 7000);
+
+  // ASCII movement
+  function moveAsciiInOut() {
+    const ascii = document.querySelector('.ascii');
+    ascii.style.transform = 'translateX(50px)';
+    setTimeout(() => {
+      ascii.style.transform = 'translateX(0px)';
+    }, 3000);
+  }
+
+  // Trigger ASCII movement every 5 seconds
+  setInterval(moveAsciiInOut, 5000);
+</script>
+
 <style>
-  .links-container {
+  /* Main Section Styling */
+  body {
+    background: linear-gradient(135deg, #A3FFB8, #C0B5F2); /* Background restored */
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    margin: 0;
+    color: #5E00FF;
+  }
+
+  /* Grid Container */
+  .grid-container {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas:
+      "top-links top-links . . ascii ascii"
+      ". description description description description ."
+      ". description description description description ."
+      "image description description description description ."
+      "image . bottom-links bottom-links . . "
+      "image . bottom-links bottom-links . . "
+      ". . . . . .";
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  /* Assigning grid areas */
+  .top-links {
+    grid-area: top-links;
+    display: flex; /* Flex for side-by-side alignment */
+  }
+
+  .bottom-links {
+    grid-area: bottom-links;
+    display: flex; /* Flex for side-by-side alignment */
+  }
+
+  .bottom-links .link-item {
+    align-items: end;
+  }
+
+  .ascii {
+    grid-area: ascii;
+    text-align: right;
+    font-family: monospace;
+    transition: transform 0.3s ease-in-out; /* Add transition for ASCII movement */
+    font-size: 14px;
+  }
+
+  .description {
+    grid-area: description;
     display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+  }
+
+  .image {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .moving-gif {
+    position: absolute;
+    width: 230px;
+    animation: move 7s infinite alternate;
+  }
+
+  .moving-gif img {
+    width: 100px;
+    height: auto;
+    border-radius: 100px;
   }
 
   .link-item {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin: 1rem;
-  }
-
-  .link-item a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
-
-  .link-item a:hover {
-    text-decoration: underline;
   }
 
   .arrow {
@@ -73,8 +197,27 @@
     margin-right: 10px;
   }
 
-  .link-item p {
-    font-size: 1rem;
-    margin-top: 5px;
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-areas:
+        "top-links"
+        "ascii"
+        "description"
+        "description"
+        "image"
+        "bottom-links"
+        "bottom-links";
+      grid-template-rows: auto;
+      grid-template-columns: 1fr;
+    }
+
+    .ascii {
+      text-align: center;
+    }
+
+    .description {
+      text-align: center;
+    }
   }
 </style>
