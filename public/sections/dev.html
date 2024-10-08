@@ -1,4 +1,4 @@
-<div class="grid-container">
+<div class="grid-layout1">
   <!-- Top Links (side by side) -->
   <div class="top-links">
     <div class="link-item">
@@ -110,11 +110,10 @@
 </script>
 
 <style>
-  /* Main Section Styling */
   body {
     background: linear-gradient(135deg, #A3FFB8, #C0B5F2);
-    margin: 0;
-    padding: 0;
+    margin: 2rem;
+    padding: 0  ;
   }
 
   h1 {
@@ -123,7 +122,7 @@
   }
 
   /* Grid Container */
-  .grid-container {
+  .grid-layout1 {
     display: grid;
     width: 100vw;
     height: 100vh;
@@ -138,7 +137,7 @@
     padding: 20px;
   }
 
-  .grid-container > * {
+  .grid-layout1 > * {
     overflow: hidden;  /* Prevent elements inside grid from overflowing */
   }
 
@@ -213,7 +212,7 @@
 
   /* Responsive Design */
   @media (max-width: 768px) {
-    .grid-container {
+    .grid-layout1 {
       grid-template-areas:
         "top-links"
         "description"
