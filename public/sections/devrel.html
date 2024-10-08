@@ -1,74 +1,216 @@
-<div>
-  <h1>Devrel</h1>
-  <p>
+<div class="grid-layout2">
+  <h1 class="heading">devrel</h1>
+  <!-- ASCII Text -->
+  <aside class="ascii">
+    <pre>
+      (\___/)
+      ( • - •)
+      /    > 🌐
+    </pre>
+  </aside>
+
+  <p class="description">
     Inclusive community & leadership. Leading product awarness and adoption through
     social responsibility and ethical practices, open source and hands on education.
   </p>
-</div>
 
-<!-- External Links and Descriptions -->
-<div class="links-container">
-  <div class="link-item">
-    <a href="https://docs.saucelabs.com" target="_blank">
-      <span class="arrow">↗</span> public speaking
-    </a>
-    <p>Keynote speaker and debate mediation in major conferences across the globe in person and online</p>
-  </div>
-
-  <div class="link-item">
-    <a href="https://saucelabs.com/resources/topic-hub/open-source-fellowship" target="_blank">
-      <span class="arrow">↗</span> fellowship program
-    </a>
-    <p>
-      Created and managed a cross disciplinary, 6 months paid fellowship program to
-      foster the maintainers of tomorrow
-    </p>
-  </div>
-
-  <div class="link-item">
-    <a href="https://netzkunst.berlin/metaphors/" target="_blank">
-      <span class="arrow">↗</span> articles
-    </a>
-    <p>Several articles about community, open source an gender equity</p>
+  <!-- Links (side by side) -->
+  <div class="links">
+    <div class="link-item">
+      <a href="https://netzkunst.berlin/metaphors/" target="_blank" onmouseover="changeImage('/public/images/metaphors.png')" onfocus="changeImage('/public/images/metaphors.png')">
+        <span class="arrow">↗</span> articles
+      </a>
+      <p>Several articles about community, open source an gender equity</p>
+    </div>
+    <div class="link-item">
+      <a href="https://docs.saucelabs.com/" target="_blank" onmouseover="changeImage('/public/images/docs.png')" onfocus="changeImage('/public/images/docs.png')">
+        <span class="arrow">↗</span>public speaking
+      </a>
+      <p>Keynote speaker and debate mediation in major conferences across the globe in person and online</p>
+    </div>
+    <div class="link-item">
+      <a href="https://saucelabs.com/resources/topic-hub/open-source-fellowship" target="_blank" onmouseover="changeImage('/public/images/saucelabs.png')" onfocus="changeImage('/public/images/saucelabs.png')">
+        <span class="arrow">↗</span>OS Fellowship Program
+      </a>
+      <p>Created and managed a cross disciplinary, 6 months paid fellowship program to
+        foster the maintainers of tomorrow</p>
+    </div>
   </div>
 </div>
 
-<!-- CSS -->
+  <!-- Moving GIF -->
+  <figure class="moving-gif">
+    <img src="/public/images/nova-licking-paw.gif" alt="Nova the cat licking her paw gif" />
+  </figure>
+</div>
+
+<script>
+  // Change image on hover and focus
+  function changeImage(imageUrl) {
+    const imageElement = document.getElementById('image-left');
+    imageElement.src = imageUrl;
+  }
+
+  // Random GIF movement
+  function moveRandomly() {
+    const gif = document.querySelector('.moving-gif');
+    const maxX = window.innerWidth - gif.offsetWidth;
+    const maxY = window.innerHeight - gif.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    gif.style.left = `${x}px`;
+    gif.style.top = `${y}px`;
+  }
+
+  // Move the gif every 7 seconds with smoother movement
+  setInterval(moveRandomly, 7000);
+
+  // ASCII movement
+  function moveAsciiInOut() {
+    const ascii = document.querySelector('.ascii');
+    ascii.style.transform = 'translateX(50px)';
+    setTimeout(() => {
+      ascii.style.transform = 'translateX(0px)';
+    }, 3000);
+  }
+
+  // Trigger ASCII movement every 5 seconds
+  setInterval(moveAsciiInOut, 5000);
+</script>
+
 <style>
-.links-container {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
+  body {
+    /* background: radial-gradient(ellipse at top, #e66465, transparent),
+            radial-gradient(ellipse at bottom, #4d9f0c, transparent); */
+    background-color: radial-gradient(#F4B7B1, #F8F0BE);
+    margin: 2rem;
+    padding: 0  ;
+  }
 
-.link-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 1rem;
-}
+  h1 {
+    margin: 0;
+    color: #FF00A6;
+  }
 
-.link-item a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #000;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
+  /* Grid Container */
+  .grid-layout2 {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas:
+      ". . . description description"
+      ". . . description description"
+      "heading ascii . links links"
+      "heading ascii . links links"
+      ". . . links links";
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
 
-.link-item a:hover {
-  text-decoration: underline;
-}
+  .grid-layout2 > * {
+    overflow: hidden;
+  }
 
-.arrow {
-  font-size: 1.2rem;
-  margin-right: 10px;
-}
+  .heading {
+    grid-area: heading;
+  }
 
-.link-item p {
-  font-size: 1rem;
-  color: #555;
-  margin-top: 5px;
-}
+  .links {
+    grid-area: links;
+    display: flex; /* Flex for side-by-side alignment */
+    flex-wrap: wrap;
+  }
+
+  .ascii {
+    grid-area: ascii;
+    text-align: right;
+    font-family: monospace;
+    transition: transform 0.3s ease-in-out; /* Add transition for ASCII movement */
+    font-size: 14px;
+  }
+
+  .description {
+    grid-area: description;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+  }
+
+  .image {
+    grid-area: image;
+  }
+
+  .image img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .moving-gif {
+    position: absolute;
+    width: 230px;
+    animation: move 7s infinite alternate;
+  }
+
+  .moving-gif img {
+    width: 100px;
+    height: auto;
+    border-radius: 100px;
+  }
+
+  div .link-item {
+    margin: 0;
+  }
+  .link-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+
+  /* Responsive Design */
+  /* @media (max-width: 768px) {
+    .grid-layout2 {
+      grid-template-areas:
+        "links"
+        "description"
+        "description"
+        "image"
+        "links"
+        "links";
+      grid-template-rows: auto;
+      grid-template-columns: 1fr;
+      gap: 5px;
+      padding: 5px;
+    }
+
+    .ascii {
+      display: none;
+    }
+
+    .description {
+      text-align: center;
+    }
+
+    .link-item p {
+      display: none;
+    }
+
+    .link-item a {
+      font-size: small;
+    }
+
+    .link-item .arrow {
+      font-size: small;
+    }
+  } */
 </style>
