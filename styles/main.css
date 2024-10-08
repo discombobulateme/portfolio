@@ -5,12 +5,14 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
   font-family: Arial, sans-serif; /* Fallback */
 }
 
 body {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+  /* scroll-snap-type: y mandatory;
+  overflow-y: scroll; */
 }
 
 h1 {
@@ -46,7 +48,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   scroll-snap-align: start;
-  margin: 1rem;
+  margin: 0;
   overflow: hidden;
 }
 
