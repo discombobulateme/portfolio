@@ -10,6 +10,11 @@ html, body {
   font-family: Arial, sans-serif; /* Fallback */
 }
 
+body {
+  background: radial-gradient(ellipse at top, #e66465, transparent),
+            radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+}
+
 h1 {
   font-family: "Bagel Fat One", sans-serif;
   font-size: 6rem;
