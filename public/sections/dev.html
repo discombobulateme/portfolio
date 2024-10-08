@@ -58,7 +58,14 @@
       </a>
       <p>Vue.js Zotero</p>
     </div>
+    <div class="link-item">
+      <a href="https://tenderintelligenc.es/" target="_blank" onmouseover="changeImage('/public/images/tenderintelligences.png')" onfocus="changeImage('/public/images/tenderintelligences.png')">
+        <span class="arrow">↗</span> tenderintelligenc.es
+      </a>
+      <p>Vue3.js</p>
+    </div>
   </div>
+</div>
 
   <!-- Moving GIF -->
   <figure class="moving-gif">
@@ -121,26 +128,31 @@
     width: 100vw;
     height: 100vh;
     grid-template-areas:
-      "top-links top-links . . ascii ascii"
-      ". description description description description ."
-      ". description description description description ."
-      "image description description description description ."
-      "image . bottom-links bottom-links . . "
-      "image . bottom-links bottom-links . . "
-      ". . . . . .";
-    grid-template-rows: repeat(7, 1fr);
-    grid-template-columns: repeat(6, 1fr);
+      "top-links top-links ascii ascii"
+      ". description description ."
+      "image description description ."
+      "image bottom-links bottom-links bottom-links";
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .grid-container > * {
+    overflow: hidden;  /* Prevent elements inside grid from overflowing */
   }
 
   /* Assigning grid areas */
   .top-links {
     grid-area: top-links;
     display: flex; /* Flex for side-by-side alignment */
+    flex-wrap: wrap;
   }
 
   .bottom-links {
     grid-area: bottom-links;
     display: flex; /* Flex for side-by-side alignment */
+    flex-wrap: wrap;
   }
 
   .bottom-links .link-item {
@@ -165,14 +177,13 @@
 
   .image {
     grid-area: image;
-    display: flex;
-    justify-content: center;
   }
 
   .image img {
-    width: 200px;
+    width: 300px;
     height: auto;
     border-radius: 8px;
+    margin-bottom: 1rem;
   }
 
   .moving-gif {
@@ -187,6 +198,9 @@
     border-radius: 100px;
   }
 
+  div .link-item {
+    margin: 0;
+  }
   .link-item {
     display: flex;
     flex-direction: column;
@@ -202,7 +216,6 @@
     .grid-container {
       grid-template-areas:
         "top-links"
-        "ascii"
         "description"
         "description"
         "image"
@@ -210,14 +223,28 @@
         "bottom-links";
       grid-template-rows: auto;
       grid-template-columns: 1fr;
+      gap: 5px;
+      padding: 5px;
     }
 
     .ascii {
-      text-align: center;
+      display: none;
     }
 
     .description {
       text-align: center;
+    }
+
+    .link-item p {
+      display: none;
+    }
+
+    .link-item a {
+      font-size: small;
+    }
+
+    .link-item .arrow {
+      font-size: small;
     }
   }
 </style>
