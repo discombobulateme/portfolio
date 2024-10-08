@@ -5,39 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>discombobulateme</title>
 
+  <script>
+    // Dynamically set the base URL for GitHub Pages or local development
+    const isGithubPages = window.location.hostname === "discombobulateme.github.io";
+    if (isGithubPages) {
+      const base = document.createElement('base');
+      base.href = "/portfolio/";
+      document.head.appendChild(base);
+    }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Langar&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="styles/main.css">
 
   <script src="https://unpkg.com/htmx.org@2.0.2" integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ" crossorigin="anonymous"></script>
 </head>
 <body>
-  <section class="section" id="me" hx-get="/public/sections/me.html" hx-trigger="load">
+  <section class="section" id="me" hx-get="public/sections/me.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="devrel" hx-get="/public/sections/devrel.html" hx-trigger="load">
+  <section class="section" id="devrel" hx-get="public/sections/devrel.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="dev" hx-get="/public/sections/dev.html" hx-trigger="load">
+  <section class="section" id="dev" hx-get="public/sections/dev.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="opensource" hx-get="/public/sections/opensource.html" hx-trigger="load">
+  <section class="section" id="opensource" hx-get="public/sections/opensource.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="genderequity" hx-get="/public/sections/genderequity.html" hx-trigger="load">
+  <section class="section" id="genderequity" hx-get="public/sections/genderequity.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="accessibility" hx-get="/public/sections/accessibility.html" hx-trigger="load">
+  <section class="section" id="accessibility" hx-get="public/sections/accessibility.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="creative" hx-get="/public/sections/creative.html" hx-trigger="load">
+  <section class="section" id="creative" hx-get="public/sections/creative.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="contact" hx-get="/public/sections/contact.html" hx-trigger="load">
+  <section class="section" id="contact" hx-get="public/sections/contact.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
 
-  <script src="/utils/scroll.js"></script>
+  <script src="utils/scroll.js"></script>
 </body>
 </html>
