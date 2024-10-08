@@ -10,11 +10,6 @@ html, body {
   font-family: Arial, sans-serif; /* Fallback */
 }
 
-body {
-  /* scroll-snap-type: y mandatory;
-  overflow-y: scroll; */
-}
-
 h1 {
   font-family: "Bagel Fat One", sans-serif;
   font-size: 6rem;
