@@ -23,31 +23,71 @@
   <script src="https://unpkg.com/htmx.org@2.0.2" integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ" crossorigin="anonymous"></script>
 </head>
 <body>
-  <section class="section" id="me" hx-get="public/sections/me.html" hx-trigger="load">
+  <section class="section layout1" id="me" hx-get="public/sections/me.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="devrel" hx-get="public/sections/devrel.html" hx-trigger="load">
+  <section class="section layout2" id="devrel" hx-get="public/sections/devrel.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="dev" hx-get="public/sections/dev.html" hx-trigger="load">
+  <section class="section layout3" id="dev" hx-get="public/sections/dev.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="opensource" hx-get="public/sections/opensource.html" hx-trigger="load">
+  <!-- <section class="section layout4" id="opensource" hx-get="public/sections/opensource.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="genderequity" hx-get="public/sections/genderequity.html" hx-trigger="load">
+  <section class="section layout1" id="genderequity" hx-get="public/sections/genderequity.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="accessibility" hx-get="public/sections/accessibility.html" hx-trigger="load">
+  <section class="section layout2" id="accessibility" hx-get="public/sections/accessibility.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="creative" hx-get="public/sections/creative.html" hx-trigger="load">
+  <section class="section layout3" id="creative" hx-get="public/sections/creative.html" hx-trigger="load">
     <h1>Loading...</h1>
   </section>
-  <section class="section" id="contact" hx-get="public/sections/contact.html" hx-trigger="load">
+  <section class="section layout4" id="contact" hx-get="public/sections/contact.html" hx-trigger="load">
     <h1>Loading...</h1>
-  </section>
+  </section> -->
+
+  <!-- Moving GIF -->
+  <figure class="moving-gif">
+    <img src="/public/images/peinado.gif" alt="Paloma combing Nova the cat" />
+  </figure>
 
   <script src="utils/scroll.js"></script>
+  <script>
+    // Change image on hover and focus
+    function changeImage(imageUrl) {
+      const imageElement = document.getElementById('image-left');
+      imageElement.src = imageUrl;
+    }
+  
+    // Random GIF movement
+    function moveRandomly() {
+      const gif = document.querySelector('.moving-gif');
+      const maxX = window.innerWidth - gif.offsetWidth;
+      const maxY = window.innerHeight - gif.offsetHeight;
+  
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+  
+      gif.style.left = `${x}px`;
+      gif.style.top = `${y}px`;
+    }
+  
+    // Move the gif every 7 seconds with smoother movement
+    setInterval(moveRandomly, 7000);
+  
+    // ASCII movement
+    function moveAsciiInOut() {
+      const ascii = document.querySelector('.ascii');
+      ascii.style.transform = 'translateX(50px)';
+      setTimeout(() => {
+        ascii.style.transform = 'translateX(0px)';
+      }, 3000);
+    }
+  
+    // Trigger ASCII movement every 5 seconds
+    setInterval(moveAsciiInOut, 5000);
+  </script>
 </body>
 </html>
