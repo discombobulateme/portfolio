@@ -4,16 +4,18 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  overflow-y: scroll;
+  height: 100%;
+  overflow-y: auto;
   scroll-snap-type: y mandatory;
   font-family: Arial, sans-serif; /* Fallback */
 }
 
 body {
   background: radial-gradient(ellipse at top, #e66465, transparent),
-            radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+              radial-gradient(ellipse at bottom, #4d9f0c, transparent);
 }
+
+/* Global Styles */
 
 h1 {
   font-family: "Bagel Fat One", sans-serif;
@@ -41,25 +43,84 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Section Styling */
+/* Section Defaults */
 .section {
-  height: 100vh;
+  min-height: 100vh;  /* Allow sections to fit viewport but grow if needed */
   display: flex;
   justify-content: center;
   align-items: center;
-  scroll-snap-align: start;
-  margin: 0;
   overflow: hidden;
 }
 
+/* Backgrounds and Titles */
+.layout1 {
+  background: linear-gradient(to right, #f4a261, #e76f51);
+}
+
+.layout2 {
+  background: radial-gradient(circle, #f8f0be, #f4b7b1);
+}
+
+.layout2 h1 {
+  color: #FF00A6;
+}
+
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
+  .layout1 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "content"
+      "image";
+  }
+
   h1 {
     font-size: 2rem;
   }
+
   p {
     font-size: small;
   }
+
   a {
     font-size: small;
   }
 }
+
+ /* Responsive Design */
+  /* @media (max-width: 768px) {
+    .grid-content {
+      grid-template-areas:
+        "links"
+        "description"
+        "description"
+        "image"
+        "links"
+        "links";
+      grid-template-rows: auto;
+      grid-template-columns: 1fr;
+      gap: 5px;
+      padding: 5px;
+    }
+
+    .ascii {
+      display: none;
+    }
+
+    .description {
+      text-align: center;
+    }
+
+    .link-item p {
+      display: none;
+    }
+
+    .link-item a {
+      font-size: small;
+    }
+
+    .link-item .arrow {
+      font-size: small;
+    }
+  } */
