@@ -50,11 +50,16 @@
 
   <!-- Moving GIF -->
   <figure class="moving-gif">
-    <img src="/public/images/peinado.gif" alt="Paloma combing Nova the cat" />
+    <img src="/public/gifs/peinado.gif" alt="Animated gifs from Paloma and her cat" />
   </figure>
 
   <script src="utils/scroll.js"></script>
   <script>
+    const gifs = [
+      "public/gifs/nova.gif",
+      "public/gifs/peinado.gif",
+    ];
+
     // Change image on hover and focus
     function changeImage(imageUrl) {
       const imageElement = document.getElementById('image-left');
@@ -73,9 +78,18 @@
       gif.style.left = `${x}px`;
       gif.style.top = `${y}px`;
     }
+
+    // Function to change the GIF source randomly
+    function changeGif() {
+      const gif = document.querySelector('.moving-gif img'); // Target the <img> element inside .moving-gif
+      const randomIndex = Math.floor(Math.random() * gifs.length);
+      gif.src = gifs[randomIndex];
+    }
   
-    // Move the gif every 7 seconds with smoother movement
-    setInterval(moveRandomly, 7000);
+    // Move the gif every 5 seconds with smoother movement
+    setInterval(moveRandomly, 5000);
+    // Change the GIF every 30 seconds
+    setInterval(changeGif, 30000);
   
     // ASCII movement
     function moveAsciiInOut() {
