@@ -71,6 +71,10 @@ a:hover {
   padding: 0;
 }
 
+.moving-gif {
+  position: absolute;
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .layout1 {
