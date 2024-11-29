@@ -59,10 +59,16 @@ a:hover {
 
 .layout2 {
   background: radial-gradient(circle, #f8f0be, #f4b7b1);
+  padding: 0 3rem 0 3rem;
 }
 
 .layout2 h1 {
   color: #FF00A6;
+}
+
+.layout3 {
+  background: linear-gradient(135deg, #A3FFB8, #C0B5F2);
+  padding: 0;
 }
 
 /* Media Queries for Responsiveness */
