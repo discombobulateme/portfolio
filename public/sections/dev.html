@@ -1,18 +1,16 @@
-<div class="grid-layout1">
+<div class="grid-layout3">
   <!-- Top Links (side by side) -->
-  <div class="top-links">
-    <div class="link-item">
-      <a href="https://docs.saucelabs.com/" target="_blank" onmouseover="changeImage('public/images/docs.png')" onfocus="changeImage('public/images/docs.png')">
-        <span class="arrow">↗</span> docs.saucelabs.com
-      </a>
-      <p>Docusaurus Kubernetes GCP</p>
-    </div>
-    <div class="link-item">
-      <a href="https://saucelabs.com" target="_blank" onmouseover="changeImage('public/images/saucelabs.png')" onfocus="changeImage('public/images/saucelabs.png')">
-        <span class="arrow">↗</span> saucelabs.com
-      </a>
-      <p>Next.js Vercel LaunchDarkly Segment</p>
-    </div>
+  <div class="link-dev1">
+    <a href="https://docs.saucelabs.com/" target="_blank" onmouseover="changeImage('public/images/docs.png')" onfocus="changeImage('public/images/docs.png')">
+      <span class="arrow">↗</span> docs.saucelabs.com
+    </a>
+    <p>Docusaurus Kubernetes GCP</p>
+  </div>
+  <div class="link-dev2">
+    <a href="https://saucelabs.com" target="_blank" onmouseover="changeImage('public/images/saucelabs.png')" onfocus="changeImage('public/images/saucelabs.png')">
+      <span class="arrow">↗</span> saucelabs.com
+    </a>
+    <p>Next.js Vercel LaunchDarkly Segment</p>
   </div>
 
   <!-- ASCII Text -->
@@ -25,52 +23,41 @@
   </aside>
 
   <!-- Main Title and Paragraph -->
-  <div class="description">
-    <h1>DEV</h1>
-    <p>
-      My approach to development prioritizes tools that meet developer and user needs,
-      focusing on usability and accessibility while avoiding unnecessary complexity
-      in favor of maintenance, standards, and collaboration.
-      I am driven by curiosity and approach solutions with ongoing experiments driven
-      by data and user feedback.
-      I value clear communication and good documentation as a foundation for
-      fostering collaborative environments, emphasizing mutual understanding and
-      cross-team work.
-    </p>
-  </div>
-
+  <h1 class="title-dev">DEV</h1>
+  <p class="description-dev">
+    My approach to development prioritizes tools that meet developer and user needs,
+    focusing on usability and accessibility while avoiding unnecessary complexity
+    in favor of maintenance, standards, and collaboration.
+    I am driven by curiosity and approach solutions with ongoing experiments driven
+    by data and user feedback.
+    I value clear communication and good documentation as a foundation for
+    fostering collaborative environments, emphasizing mutual understanding and
+    cross-team work.
+  </p>
   <!-- Image -->
   <div class="image">
     <img src="public/images/cc.png" alt="Calculated Control website printscreen" id="image-left" />
   </div>
 
   <!-- Bottom Links (side by side) -->
-  <div class="bottom-links">
-    <div class="link-item">
-      <a href="https://netzkunst.berlin/metaphors/" target="_blank" onmouseover="changeImage('public/images/metaphors.png')" onfocus="changeImage('public/images/metaphors.png')">
-        <span class="arrow">↗</span> netzkunst.berlin/metaphors
-      </a>
-      <p>Nuxt.js</p>
-    </div>
-    <div class="link-item">
-      <a href="https://netzkunst.berlin/cc" target="_blank" onmouseover="changeImage('public/images/cc.png')" onfocus="changeImage('public/images/cc.png')">
-        <span class="arrow">↗</span> netzkunst.berlin/cc
-      </a>
-      <p>Vue.js Zotero</p>
-    </div>
-    <div class="link-item">
-      <a href="https://tenderintelligenc.es/" target="_blank" onmouseover="changeImage('public/images/tenderintelligences.png')" onfocus="changeImage('public/images/tenderintelligences.png')">
-        <span class="arrow">↗</span> tenderintelligenc.es
-      </a>
-      <p>Vue3.js</p>
-    </div>
+  <div class="link-dev3">
+    <a href="https://netzkunst.berlin/metaphors/" target="_blank" onmouseover="changeImage('public/images/metaphors.png')" onfocus="changeImage('public/images/metaphors.png')">
+      <span class="arrow">↗</span> netzkunst.berlin/metaphors
+    </a>
+    <p>Nuxt.js</p>
   </div>
-</div>
-
-  <!-- Moving GIF -->
-  <figure class="moving-gif">
-    <img src="public/images/nova.gif" alt="Nova the cat licking her paw gif" />
-  </figure>
+  <div class="link-dev4">
+    <a href="https://netzkunst.berlin/cc" target="_blank" onmouseover="changeImage('public/images/cc.png')" onfocus="changeImage('public/images/cc.png')">
+      <span class="arrow">↗</span> netzkunst.berlin/cc
+    </a>
+    <p>Vue.js Zotero</p>
+  </div>
+  <div class="link-dev5">
+    <a href="https://tenderintelligenc.es/" target="_blank" onmouseover="changeImage('public/images/tenderintelligences.png')" onfocus="changeImage('public/images/tenderintelligences.png')">
+      <span class="arrow">↗</span> tenderintelligenc.es
+    </a>
+    <p>Vue3.js</p>
+  </div>
 </div>
 
 <script>
@@ -79,22 +66,6 @@
     const imageElement = document.getElementById('image-left');
     imageElement.src = imageUrl;
   }
-
-  // Random GIF movement
-  function moveRandomly() {
-    const gif = document.querySelector('.moving-gif');
-    const maxX = window.innerWidth - gif.offsetWidth;
-    const maxY = window.innerHeight - gif.offsetHeight;
-
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-
-    gif.style.left = `${x}px`;
-    gif.style.top = `${y}px`;
-  }
-
-  // Move the gif every 7 seconds with smoother movement
-  setInterval(moveRandomly, 7000);
 
   // ASCII movement
   function moveAsciiInOut() {
@@ -110,51 +81,53 @@
 </script>
 
 <style>
-  body {
-    background: linear-gradient(135deg, #A3FFB8, #C0B5F2);
-    padding: 0  ;
-  }
-
   h1 {
     margin: 0;
     color: #5E00FF;
   }
 
   /* Grid Container */
-  .grid-layout1 {
+  .grid-layout3 {
     display: grid;
     width: 100vw;
     height: 100vh;
     grid-template-areas:
-      "top-links top-links ascii ascii"
-      ". description description ."
-      "image description description ."
-      "image bottom-links bottom-links bottom-links";
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(4, 1fr);
+      "link-dev1 link-dev1 link-dev2 link-dev2 ascii ascii"
+      "link-dev1 link-dev1 link-dev2 link-dev2 ascii ascii"
+      ". . . title-dev title-dev ."
+      ". description-dev description-dev description-dev description-dev ."
+      ". description-dev description-dev description-dev description-dev ."
+      "image image . link-dev3 link-dev4 link-dev5"
+      "image image . link-dev3 link-dev4 link-dev5";
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 20px;
     padding: 20px;
   }
 
-  .grid-layout1 > * {
+  .grid-layout3 > * {
     overflow: hidden;  /* Prevent elements inside grid from overflowing */
   }
 
   /* Assigning grid areas */
-  .top-links {
-    grid-area: top-links;
-    display: flex; /* Flex for side-by-side alignment */
-    flex-wrap: wrap;
+  .link-dev1 {
+    grid-area: link-dev1;
   }
-
-  .bottom-links {
-    grid-area: bottom-links;
-    display: flex; /* Flex for side-by-side alignment */
-    flex-wrap: wrap;
+  .link-dev2 {
+    grid-area: link-dev2;
   }
-
-  .bottom-links .link-item {
-    align-items: end;
+  .link-dev3 {
+    grid-area: link-dev3;
+  }
+  .link-dev4 {
+    grid-area: link-dev4;
+  }
+  .link-dev5 {
+    grid-area: link-dev5;
+  }
+  .title-dev {
+    grid-area: title-dev;
+    text-align: right;
   }
 
   .ascii {
@@ -165,11 +138,8 @@
     font-size: 14px;
   }
 
-  .description {
-    grid-area: description;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .description-dev {   
+    grid-area: description-dev;   
     text-align: right;
   }
 
@@ -210,12 +180,10 @@
 
   /* Responsive Design */
   @media (max-width: 768px) {
-    .grid-layout1 {
+    .grid-layout3 {
       grid-template-areas:
         "top-links"
-        "description"
-        "description"
-        "image"
+        "description-dev       "description-dev       "image"
         "bottom-links"
         "bottom-links";
       grid-template-rows: auto;
@@ -228,8 +196,7 @@
       display: none;
     }
 
-    .description {
-      text-align: center;
+    .description-dev      text-align: center;
     }
 
     .link-item p {
