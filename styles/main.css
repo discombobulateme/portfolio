@@ -11,8 +11,8 @@ html, body {
 }
 
 body {
-  background: radial-gradient(ellipse at top, #e66465, transparent),
-              radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+  background: radial-gradient(ellipse at top, #e0e664, transparent),
+              radial-gradient(ellipse at bottom, #f70de7, transparent);
 }
 
 /* Global Styles */
@@ -63,6 +63,11 @@ a:hover {
 
 .layout3 {
   background: linear-gradient(135deg, #A3FFB8, #C0B5F2);
+}
+
+.layout4 {
+  background: radial-gradient(ellipse at top, #d5f909, transparent),
+              radial-gradient(ellipse at bottom, #f70de7, transparent);
 }
 
 .moving-gif {
