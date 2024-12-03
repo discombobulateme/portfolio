@@ -70,6 +70,10 @@ a:hover {
               radial-gradient(ellipse at bottom, #f70de7, transparent);
 }
 
+.layout5 {
+  background: radial-gradient(135deg, #ec840d, #6dfdf6);
+}
+
 .moving-gif {
   position: absolute;
 }
