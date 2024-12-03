@@ -1,47 +1,9 @@
-<div>
-  <h1>open source</h1>
-  <p>Collaboration as philosophy and practical way for a better world for all.</p>
-
-    <!-- ASCII2 Text -->
-    <aside class="ascii2">
-      <pre>
-        ᓚ₍ ^. .^ ₎
-      </pre>
-    </aside>
-    
-    <!-- ASCII2 Text -->
-    <aside class="ascii2">
-      <pre>
-          _____________
-         |             |
-         |    Hello    |
-         |    World    |
-         |_____________|
-               | |
-        (\__/) | | 
-        ( •ㅅ•) | |
-        /    > | |
-      </pre>
-    </aside>
-
-  <!-- External Links and Descriptions -->
-<div class="links-container">
-  <div class="link-item">
-    <a href="https://docs.saucelabs.com" target="_blank">
-      <span class="arrow">↗</span> articles & workshops
-    </a>
-    <p>Keynote speaker and debate mediation in major conferences across the globe in person and online</p>
-  </div>
-
-  <div class="link-item">
-    <a href="https://saucelabs.com" target="_blank">
-      <span class="arrow">↗</span> contributing to foundations
-    </a>
-    <p>OpenJS Foundation program commitee & Python Software Verband board member</p>
-  </div>
-
-  <div class="link-item">
-    <a href="https://www.meetup.com/pyladies-berlin/events/" target="_blank">
+<div class="grid-layout4">
+  <!-- Top Links (side by side) -->
+  <div class="link-os1">
+    <a href="https://www.meetup.com/PyLadies-Berlin/" target="_blank" 
+      onmouseover="changeImage('public/images/hack-nights.png')" 
+      onfocus="changeImage('public/images/hack-nights.png')">
       <span class="arrow">↗</span> hack nights
     </a>
     <p>
@@ -49,58 +11,237 @@
       and facilitating contributions to open source projects.
     </p>
   </div>
+  <div class="link-os2">
+    <a href="https://berlin.pyladies.com/" target="_blank" 
+      onmouseover="changeImage('public/images/pyladies.png')" 
+      onfocus="changeImage('public/images/pyladies.png')">
+      <span class="arrow">↗</span> pyladies berlin
+    </a>
+    <p>
+      We foment diversity, inclusion, and belonging within the tech community.
+    </p>
+  </div>
 
-  <div class="link-item">
-    <a href="https://www.medhacker.com.br/" target="_blank">
+  <!-- ASCII Text -->
+  <aside class="ascii4">
+    <pre>
+      ｜￣￣￣￣￣￣￣￣￣｜
+      ｜　its from and ｜
+      ｜　for everyone ｜
+      ｜＿＿＿＿＿＿＿＿＿｜
+      (\_❀)  ||
+      (•ㅅ•) ||
+      / 　 づ
+    </pre>
+  </aside>
+
+  <!-- Main Title and Paragraph -->
+  <h1 class="title-os">open source</h1>
+  <p class="description-os">
+    Open Source is a real possibility to change the power axis from the sole hands of a 
+    few homegenic ones to multicultural diverse others. It is a synonym for collaboration 
+    and the demonstration of the intelligence of the crowds.
+  </p>
+  <!-- Image -->
+  <img class="image" src="public/images/un.png" alt="Calculated Control website printscreen" id="image-os" />
+
+  <!-- Bottom Links (side by side) -->
+  <div class="link-os3">
+    <a href="https://python-verband.org/" target="_blank" target="_blank" 
+      onmouseover="changeImage('public/images/pysv.jpg')" 
+      onfocus="changeImage('public/images/pysv.jpg')">
+      <span class="arrow">↗</span> contributing to foundations
+    </a>
+    <p>OpenJS Foundation program commitee & Python Software Verband board member</p>
+  </div>
+  <div class="link-os4">
+    <a href="https://www.medhacker.com.br/" target="_blank"
+      onmouseover="changeImage('public/images/medhacker.png')" 
+      onfocus="changeImage('public/images/medhacker.png')">
       <span class="arrow">↗</span> medhackers
     </a>
     <p>Contributing to what touch us all: opening medicine and doctor-patient relashionship.</p>
   </div>
-
-  <div class="link-item">
-    <a href="https://netzkunst.berlin/metaphors/" target="_blank">
-      <span class="arrow">↗</span> hibrida
+  <div class="link-os5">
+    <a href="https://www.un.org/techenvoy/fr/content/ospos-good-2024" target="_blank"
+      onmouseover="changeImage('public/images/un.png')" 
+      onfocus="changeImage('public/images/un.png')">
+      <span class="arrow">↗</span> OSPO's For Good@UN
     </a>
-    <p>Indisciplinary innovation with cross sectors collaboration</p>
+    <p>
+      Putting together people, government and academia from around 
+      the globe to help forward UN sustainable goals. Part of the program commitee.
+    </p>
   </div>
 </div>
 
-<!-- CSS -->
+<script>
+  // Change image on hover and focus
+  function changeImage(imageUrl) {
+    const imageElement = document.getElementById('image-os');
+    imageElement.src = imageUrl;
+  }
+
+  // ASCII movement
+  function moveAsciiInOut() {
+    const ascii = document.querySelector('.ascii4');
+    ascii.style.transform = 'translateX(50px)';
+    setTimeout(() => {
+      ascii.style.transform = 'translateX(0px)';
+    }, 3000);
+  }
+
+  // Trigger ASCII movement every 5 seconds
+  setInterval(moveAsciiInOut, 5000);
+</script>
+
 <style>
-.links-container {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
+  h1 {
+    margin: 0;
+    color: #5E00FF;
+  }
 
-.link-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 1rem;
-}
+  /* Grid Container */
+  .grid-layout4 {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas:
+    ". . description-os description-os description-os ."
+    "image image description-os description-os description-os ."
+    "image image link-os3 link-os3 link-os4 link-os4"
+    "image image link-os3 link-os3 link-os4 link-os4"
+    "link-os1 link-os1 link-os2 link-os2 ascii ascii"
+    "link-os1 link-os1 link-os2 link-os2 ascii ascii"
+      ". . . link-os5 link-os5 ."
+      ". . . link-os5 link-os5 ."
+      ". . title-os title-os title-os title-os"
+      ". . title-os title-os title-os title-os";
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
 
-.link-item a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #000;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
+  .grid-layout4 > * {
+    overflow: hidden;  /* Prevent elements inside grid from overflowing */
+  }
 
-.link-item a:hover {
-  text-decoration: underline;
-}
+  /* Assigning grid areas */
+  .link-os1 {
+    grid-area: link-os1;
+  }
+  .link-os2 {
+    grid-area: link-os2;
+  }
+  .link-os3 {
+    grid-area: link-os3;
+  }
+  .link-os4 {
+    grid-area: link-os4;
+  }
+  .link-os5 {
+    grid-area: link-os5;
+  }
+  .title-os {
+    grid-area: title-os;
+    text-align: right;
+  }
 
-.arrow {
-  font-size: 1.2rem;
-  margin-right: 10px;
-}
+  .ascii4 {
+    grid-area: ascii;
+    text-align: right;
+    font-family: monospace;
+    transition: transform 0.3s ease-in-out; /* Add transition for ASCII movement */
+    font-size: 14px;
+  }
 
-.link-item p {
-  font-size: 1rem;
-  color: #555;
-  margin-top: 5px;
-}
+  .description-os {   
+    grid-area: description-os;   
+    text-align: right;
+  }
+
+  .image {
+    grid-area: image;
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .moving-gif {
+    position: absolute;
+    width: 230px;
+    animation: move 7s infinite alternate;
+  }
+
+  .moving-gif img {
+    width: 100px;
+    height: auto;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .grid-layout4 {
+      grid-template-areas:
+        "link-os1"
+        "link-os2"
+        "image"
+        "link-os3"
+        "link-os4"
+        "link-os5"
+        "title-os";        
+      grid-template-rows: auto;
+      grid-template-columns: 1fr;
+      padding: 0;
+      gap: 0;
+    }
+
+    .grid-layout4 {
+      padding: 0.5rem;
+    }
+
+    .ascii4 {
+      display: none;
+    }
+
+    .grid-layout4 .link-os1 p,
+    .grid-layout4 .link-os2 p,
+    .grid-layout4 .link-os3 p,
+    .grid-layout4 .link-os4 p,
+    .grid-layout4 .link-os5 p,
+    .grid-layout4 .description-os {
+      display: none;
+    }
+
+    .grid-layout4 .link-os1,
+    .grid-layout4 .link-os2,
+    .grid-layout4 .link-os3,
+    .grid-layout4 .link-os4,
+    .grid-layout4 .link-os5 {
+      text-align: center;
+    }
+
+    .grid-layout4 > a {
+      font-size: medium;
+    }
+
+    .grid-layout4 > .arrow {
+      font-size: small;
+    }
+
+    .image {
+      width: 100%;
+    }
+
+    .grid-layout4 .title-os {
+      text-align: center;
+      font-size: 4rem;
+    }
+  }
 </style>
