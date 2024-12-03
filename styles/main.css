@@ -71,7 +71,7 @@ a:hover {
 }
 
 .layout5 {
-  background: radial-gradient(135deg, #ec840d, #6dfdf6);
+  background: linear-gradient(135deg, #ec840d, #6dfdf6);
 }
 
 .moving-gif {

@@ -1,69 +1,120 @@
-<div>
-  <h1>Gender Equity</h1>
-  <p>Because diversity isn't supplementary, it's foundational.</p>
-
-  <!-- External Links and Descriptions -->
-  <div class="links-container">
-    <div class="link-item">
-      <a href="https://www.youtube.com/watch?v=RBZrYMEJFXA&list=PLq-odUc2x7i9Zrs4oyM1I3V5xlYICEL2g&index=17" target="_blank">
-        <span class="arrow">↗</span> Code of conduct talks
-      </a>
-      <p>Code of conduct as restaurative justice</p>
-    </div>
-
-    <!-- ASCII2 Text -->
-    <aside class="ascii5">
+<div class="grid-layout5">
+  <aside class="ascii5">
+    <pre>
+      ᓚ₍ ^. .^ ₎
+    </pre>
+  </aside>
+  <p class="description5">
+    Because diversity isn't supplementary, it's foundational
+  </p>
+  <h1 class="title5">gender equity</h1>
+  
+  <!-- Links2 (side by side) -->
+  <div class="link-gender1">
+    <a href="https://www.youtube.com/watch?v=RBZrYMEJFXA&list=PLq-odUc2x7i9Zrs4oyM1I3V5xlYICEL2g&index=17" target="_blank">
+      <span class="arrow">↗</span> Code of conduct talks
+    </a>
+    <p>Code of conduct as restaurative justice</p>
+  </div>
+  <div class="link-gender2">
+    <a href="https://youtu.be/FHZbeLVSvY8" target="_blank">
+      <span class="arrow">↗</span> PyLadies@UN
+    </a>
+    <p>Nothing about us, without us</p>
+  </div>
+  <div class="link-gender3">
+    <a href="https://berlin.pyladies.com/" target="_blank" 
+    onmouseover="changeImage('public/images/pyladies.png')" 
+    onfocus="changeImage('public/images/pyladies.png')">
+    <span class="arrow">↗</span> PyLadies Berlin
+    </a>
+    <p>
+      We foment diversity, inclusion, and belonging within the tech community.
+    </p>
+  </div>
+    <!-- ASCII5 Text -->
+    <aside class="ascii5b">
       <pre>
-        ᓚ₍ ^. .^ ₎
+                                  /|
+                                 ///
+                                / /
+                               ||\\
+                               /   \
+                               |   |
+                         r     \   \     r^-
+                         |\---- |   |---/|
+                         /      |   | |  \
+            - - - - -   (      /   /      ) - - - - - - -
+              - - - - - \      |   |      / - - - - -
+                   __-----^----|   |----^--#----+
+                  H            |   |             #
+                /             /     \             \
+              {          /       *                 \
+              -/       /                 9\         \-
+              {        |                   |        }
+              {        }                   {        }
+              #   ^    }                   {        }
+              {        }-\__---\____-----#-{        }
+             {^_^} v{-_-}                 {*_*} v(0_0}
       </pre>
     </aside>
-
-    <div class="link-item">
-      <a href="https://saucelabs.com" target="_blank">
-        <span class="arrow">↗</span> PyLadies@UN
-      </a>
-      <p>Nothing about us, without us</p>
-    </div>
-
-    <div class="link-os2">
-      <a href="https://berlin.pyladies.com/" target="_blank" 
-        onmouseover="changeImage('public/images/pyladies.png')" 
-        onfocus="changeImage('public/images/pyladies.png')">
-        <span class="arrow">↗</span> PyLadies Berlin
-      </a>
-      <p>
-        We foment diversity, inclusion, and belonging within the tech community.
-      </p>
-    </div>
-  </div>
 </div>
 
-<!-- CSS -->
-<style>
-  .links-container {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
+<script>
+  // Change image on hover and focus
+  function changeImage(imageUrl) {
+    const imageElement = document.getElementById('image-left');
+    imageElement.src = imageUrl;
   }
 
-  .link-item {
+  // Random GIF movement
+  function moveRandomly() {
+    const gif = document.querySelector('.moving-gif');
+    const maxX = window.innerWidth - gif.offsetWidth;
+    const maxY = window.innerHeight - gif.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    gif.style.left = `${x}px`;
+    gif.style.top = `${y}px`;
+  }
+
+  // Move the gif every 7 seconds with smoother movement
+  setInterval(moveRandomly, 7000);
+
+  // ASCII5 movement
+  function moveAscii5InOut() {
+    const ascii5 = document.querySelector('.ascii5');
+    ascii5.style.transform = 'translateX(50px)';
+    setTimeout(() => {
+      ascii5.style.transform = 'translateX(0px)';
+    }, 3000);
+  }
+
+  // Trigger ASCII5 movement every 5 seconds
+  setInterval(moveAscii5InOut, 5000);
+</script>
+
+<style>
+  .moving-gif {
+    position: absolute;
+    width: 230px;
+    animation: move 7s infinite alternate;
+  }
+
+  .moving-gif img {
+    width: 100px;
+    height: auto;
+
+  }
+
+  div .link-gender {
+    margin: 0;
+  }
+  .link-gender {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin: 1rem;
-  }
-
-  .link-item a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #000;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
-
-  .link-item a:hover {
-    text-decoration: underline;
   }
 
   .arrow {
@@ -71,9 +122,104 @@
     margin-right: 10px;
   }
 
-  .link-item p {
-    font-size: 1rem;
-    color: #555;
-    margin-top: 5px;
+  /* Layout 2 */
+  .grid-layout5 {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    grid-template-areas:
+      "ascii5 . . . . . ."
+      ". . . description5 description5 description5 description5"
+      "title5 title5 . . . link1  ."
+      "title5 title5 . . . link1  ."
+      ". . link2 link2 . . ."
+      ". . link2 link2 . . ."
+      ". . . link3 . ascii5b ascii5b"
+      ". . . link3 . ascii5b ascii5b"
+      ". . . . . ascii5b ascii5b";
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-columns: repeat(7, 1fr);
   }
-  </style>
+
+  .description5 {
+    grid-area: description5;
+  }
+  .title5 {
+    grid-area: title5;
+  }
+  .title5 {
+    color: #002aff;
+  }
+  .ascii5 {
+    grid-area: ascii5;
+  }
+  .ascii5b {
+    grid-area: ascii5b;
+  }
+  .link-gender1 {
+    grid-area: link1;
+    padding-right: 20px;
+  }
+  .link-gender2 {
+    grid-area: link2;
+  }
+  .link-gender3 {
+    grid-area: link3;
+  }
+
+  .grid-layout5 a {
+    color: #b53600;
+  }
+
+  /* reponsive */
+  @media (max-width: 768px) {
+    .grid-layout5 {
+      grid-template-areas:
+        "ascii5"
+        "description5"
+        "title5"
+        "link1"
+        "link2"
+        "link3";
+      grid-template-rows: auto;
+      grid-template-columns: 1fr;
+      padding: 0.5rem;
+      gap: 0;
+    }
+
+    .grid-layout5 .link-gender1 p,
+    .grid-layout5 .link-gender2 p,
+    .grid-layout5 .link-gender3 p, 
+    .ascii5b {
+      display: none;
+    }
+
+    .link-gender1 a,
+    .link-gender2 a,
+    .link-gender3 a {
+      font-size: large;
+    }
+
+    .link-gender1,
+    .link-gender2,
+    .link-gender3 {
+      text-align: left;
+    }
+
+    .link-gender1 .arrow,
+    .link-gender2 .arrow,
+    .link-gender3 .arrow {
+      font-size: small;
+    }
+
+    .description5 {
+      text-align: center;
+    }
+
+    .title5 {
+      text-align: center;
+      font-size: 4rem;
+    }
+  }
+</style>
