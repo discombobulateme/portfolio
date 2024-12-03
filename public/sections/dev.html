@@ -35,9 +35,7 @@
     cross-team work.
   </p>
   <!-- Image -->
-  <div class="image">
-    <img src="public/images/cc.png" alt="Calculated Control website printscreen" id="image-left" />
-  </div>
+  <img class="image" src="public/images/cc.png" alt="Calculated Control website printscreen" id="image-left" />
 
   <!-- Bottom Links (side by side) -->
   <div class="link-dev3">
@@ -95,11 +93,14 @@
       "link-dev1 link-dev1 link-dev2 link-dev2 ascii ascii"
       "link-dev1 link-dev1 link-dev2 link-dev2 ascii ascii"
       ". . . title-dev title-dev ."
+      ". . . title-dev title-dev ."
       ". description-dev description-dev description-dev description-dev ."
       ". description-dev description-dev description-dev description-dev ."
-      "image image . link-dev3 link-dev4 link-dev5"
-      "image image . link-dev3 link-dev4 link-dev5";
-    grid-template-rows: repeat(7, 1fr);
+      "image image link-dev3 link-dev3 link-dev4 link-dev4"
+      "image image link-dev3 link-dev3 link-dev4 link-dev4"
+      ". . . link-dev5 link-dev5 ."
+      ". . . link-dev5 link-dev5 .";
+    grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
     padding: 20px;
@@ -145,9 +146,6 @@
 
   .image {
     grid-area: image;
-  }
-
-  .image img {
     width: 300px;
     height: auto;
     border-radius: 8px;
@@ -165,14 +163,6 @@
     height: auto;
   }
 
-  div .link-item {
-    margin: 0;
-  }
-  .link-item {
-    display: flex;
-    flex-direction: column;
-  }
-
   .arrow {
     font-size: 1.2rem;
     margin-right: 10px;
@@ -182,33 +172,59 @@
   @media (max-width: 768px) {
     .grid-layout3 {
       grid-template-areas:
-        "top-links"
-        "description-dev       "description-dev       "image"
-        "bottom-links"
-        "bottom-links";
+        "link-dev1"
+        "link-dev2"
+        "title-dev"        
+        "image"
+        "link-dev3"
+        "link-dev4"
+        "link-dev5";
       grid-template-rows: auto;
       grid-template-columns: 1fr;
-      gap: 5px;
-      padding: 5px;
+      padding: 0;
+      gap: 0;
+    }
+
+    .grid-layout3 {
+      padding: 0.5rem;
     }
 
     .ascii {
       display: none;
     }
 
-    .description-dev      text-align: center;
-    }
-
-    .link-item p {
+    .grid-layout3 .link-dev1 p,
+    .grid-layout3 .link-dev2 p,
+    .grid-layout3 .link-dev3 p,
+    .grid-layout3 .link-dev4 p,
+    .grid-layout3 .link-dev5 p,
+    .grid-layout3 .description-dev {
       display: none;
     }
 
-    .link-item a {
+    .grid-layout3 .link-dev1,
+    .grid-layout3 .link-dev2,
+    .grid-layout3 .link-dev3,
+    .grid-layout3 .link-dev4,
+    .grid-layout3 .link-dev5 {
+      text-align: center;
+    }
+
+    .grid-layout3 > a {
+      font-size: medium;
+    }
+
+    .grid-layout3 > .arrow {
       font-size: small;
     }
 
-    .link-item .arrow {
-      font-size: small;
+    .image {
+      width: 100%;
+    }
+
+    .grid-layout3 .title-dev {
+      text-align: center;
+      font-size: 4rem;
     }
   }
 </style>
