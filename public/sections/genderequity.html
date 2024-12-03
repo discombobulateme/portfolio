@@ -23,9 +23,7 @@
     <p>Nothing about us, without us</p>
   </div>
   <div class="link-gender3">
-    <a href="https://berlin.pyladies.com/" target="_blank" 
-    onmouseover="changeImage('public/images/pyladies.png')" 
-    onfocus="changeImage('public/images/pyladies.png')">
+    <a href="https://berlin.pyladies.com/" target="_blank">
     <span class="arrow">↗</span> PyLadies Berlin
     </a>
     <p>
@@ -61,12 +59,6 @@
 </div>
 
 <script>
-  // Change image on hover and focus
-  function changeImage(imageUrl) {
-    const imageElement = document.getElementById('image-left');
-    imageElement.src = imageUrl;
-  }
-
   // Random GIF movement
   function moveRandomly() {
     const gif = document.querySelector('.moving-gif');
@@ -92,23 +84,25 @@
     }, 3000);
   }
 
+  function moveAsciiCat() {
+    const ascii5b = document.querySelector('.ascii5b');
+    
+    ascii5b.style.transform = 'translateX(100vw)';
+    ascii5b.style.transition = 'transform 5s linear';
+
+    setTimeout(() => {
+      ascii5b.style.transform = 'translateX(-100vw)';
+      ascii5b.style.transition = 'transform 10s linear';
+    }, 7000);
+  }
+
+
   // Trigger ASCII5 movement every 5 seconds
   setInterval(moveAscii5InOut, 5000);
+  setInterval(moveAsciiCat, 12000);
 </script>
 
 <style>
-  .moving-gif {
-    position: absolute;
-    width: 230px;
-    animation: move 7s infinite alternate;
-  }
-
-  .moving-gif img {
-    width: 100px;
-    height: auto;
-
-  }
-
   div .link-gender {
     margin: 0;
   }
@@ -156,6 +150,12 @@
   }
   .ascii5b {
     grid-area: ascii5b;
+    position: absolute;
+    top: 70%;
+    transform: translateX(-100vw);
+    transition: transform 12s linear;
+    font-family: monospace;
+    white-space: pre;
   }
   .link-gender1 {
     grid-area: link1;
