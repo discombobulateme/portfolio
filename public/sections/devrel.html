@@ -8,8 +8,8 @@
   <aside class="ascii2">
     <pre>
         (\___/)
-        ( • - •)
-        /    > 🌐
+        (• - •)
+        /     > 🌐
     </pre>
   </aside>
   
@@ -104,13 +104,13 @@
     width: 100vw;
     height: 100vh;
     grid-template-areas:
+      ". . . . . . ."
       ". . . description2 description2 description2 description2"
       ". . . description2 description2 description2 description2"
-      "title2 title2 ascii2 ascii2 link1 link2 ."
-      "title2 title2 ascii2 ascii2 link1 link2 ."
-      ". . . link3 link3 . ."
-      ". . . link3 link3 . ."
-      ". . . . . . .";
+      "title2 title2 . ascii2 ascii2 link1  ."
+      "title2 title2 . ascii2 ascii2 link1  ."
+      ". . link2 link2 link3 link3 ."
+      ". . link2 link2 link3 link3 .";
     grid-template-rows: repeat(7, 1fr);
     grid-template-columns: repeat(7, 1fr);
   }
@@ -120,6 +120,9 @@
   }
   .title2 {
     grid-area: title2;
+  }
+  .title2 {
+    color: #FF00A6;
   }
   .ascii2 {
     grid-area: ascii2;
@@ -133,5 +136,59 @@
   }
   .link-item3 {
     grid-area: link3;
+  }
+
+  .grid-layout2 a {
+    color: #0e6e6e;
+  }
+
+  /* reponsive */
+  @media (max-width: 768px) {
+    .grid-layout2 {
+      grid-template-areas:
+        "title2"
+        "link1"
+        "link2"
+        "link3"
+        "ascii2"
+        "description2";
+      grid-template-rows: auto;
+      grid-template-columns: 1fr;
+      padding: 0;
+      gap: 0;
+    }
+
+    .grid-layout2 {
+      padding: 1rem;
+    }
+
+    .grid-layout2 .link-item1 p,
+    .grid-layout2 .link-item2 p,
+    .grid-layout2 .link-item3 p {
+      display: none;
+    }
+
+    .link-item1 a,
+    .link-item2 a,
+    .link-item3 a {
+      font-size: large;
+    }
+
+    .link-item1,
+    .link-item2,
+    .link-item3 {
+      text-align: right;
+    }
+
+    .link-item1 .arrow,
+    .link-item2 .arrow,
+    .link-item3 .arrow {
+      font-size: small;
+    }
+
+    .title2 {
+      text-align: center;
+      font-size: 4rem;
+    }
   }
 </style>
