@@ -29,12 +29,10 @@ function setupScrolling() {
   // Scroll function
   const scrollToSection = (direction) => {
     if (direction === 'down') {
-      // Scrolling down
       if (currentSection < totalSections - 1) {
         currentSection++;
       }
     } else if (direction === 'up') {
-      // Scrolling up
       if (currentSection > 0) {
         currentSection--;
       }
@@ -72,17 +70,19 @@ function setupScrolling() {
     touchEndY = event.touches[0].clientY;
     const deltaY = touchStartY - touchEndY;
 
-    if (deltaY > 30) {
-      // Swiped up
+    if (deltaY > 15) {
+      // Swiped up (lower threshold for greater sensitivity)
       scrollToSection('down');
-    } else if (deltaY < -30) {
+      touchStartY = touchEndY; // Reset for continuous swiping
+    } else if (deltaY < -15) {
       // Swiped down
       scrollToSection('up');
+      touchStartY = touchEndY; // Reset for continuous swiping
     }
-  }, 500); // Adjust throttle timing for touch events
+  }, 300); // Lower throttle delay for better responsiveness
 
   // Apply throttling to the scroll handler
-  window.addEventListener('wheel', throttle(handleScroll, 1000)); // 1000ms throttle
+  window.addEventListener('wheel', throttle(handleScroll, 700)); // Reduced throttle for desktop scroll
 
   // Apply touch event listeners
   window.addEventListener('touchstart', handleTouchStart);
