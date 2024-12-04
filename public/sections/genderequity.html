@@ -78,7 +78,8 @@
   // ASCII5 movement
   function moveAscii5InOut() {
     const ascii5 = document.querySelector('.ascii5');
-    ascii5.style.transform = 'translateX(50px)';
+    
+    ascii5.style.transform = 'translateX(24px)';
     setTimeout(() => {
       ascii5.style.transform = 'translateX(0px)';
     }, 3000);
@@ -87,19 +88,32 @@
   function moveAsciiCat() {
     const ascii5b = document.querySelector('.ascii5b');
     
-    ascii5b.style.transform = 'translateX(100vw)';
-    ascii5b.style.transition = 'transform 5s linear';
+    // Move in
+    ascii5b.style.transform = 'translateX(0)';
+    ascii5b.style.transition = 'transform 8s linear';
 
+    // Move out after 8 seconds
     setTimeout(() => {
-      ascii5b.style.transform = 'translateX(-100vw)';
-      ascii5b.style.transition = 'transform 10s linear';
-    }, 7000);
+      ascii5b.style.transform = 'translateX(150vw)'; // Move out to the right
+    }, 8000); // Wait for the entrance to complete
+  
+    // Reset position and wait (2 seconds)
+    setTimeout(() => {
+      ascii5b.style.transform = 'translateX(-100vw)'; // Reset position off-screen to the left
+      ascii5b.style.transition = 'none'; // Disable transition for instant reset
+    }, 16000); // After 16 seconds (8 in + 8 out)
+
+    // Re-enable transition for the next entrance
+    setTimeout(() => {
+      ascii5b.style.transition = 'transform 8s linear';
+    }, 16200); // Small delay (200ms) after reset for smooth next entrance
   }
 
 
   // Trigger ASCII5 movement every 5 seconds
   setInterval(moveAscii5InOut, 5000);
-  setInterval(moveAsciiCat, 12000);
+  setInterval(moveAsciiCat, 18000);
+
 </script>
 
 <style>
@@ -152,7 +166,7 @@
     grid-area: ascii5b;
     top: 70%;
     transform: translateX(-100vw);
-    transition: transform 12s linear;
+    transition: transform 8s ease-in-out;
     font-family: monospace;
     white-space: pre;
   }
