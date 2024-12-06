@@ -17,8 +17,8 @@
     <p>Next.js Vercel LaunchDarkly Segment</p>
   </div>
 
-  <!-- ASCII Text -->
-  <aside class="ascii">
+  <!-- ASCII3 Text -->
+  <aside class="ascii3">
     <pre>
       (\___/)
       ( • - •)
@@ -38,7 +38,7 @@
     fostering collaborative environments, emphasizing mutual understanding and
     cross-team work.
   </p>
-  <!-- Image -->
+
   <img class="image" src="public/images/cc.png" alt="Calculated Control website printscreen" id="image-left" />
 
   <!-- Bottom Links (side by side) -->
@@ -75,17 +75,17 @@
     imageElement.src = imageUrl;
   }
 
-  // ASCII movement
-  function moveAsciiInOut() {
-    const ascii = document.querySelector('.ascii');
-    ascii.style.transform = 'translateX(50px)';
+  // ASCII3 movement
+  function moveAscii3InOut() {
+    const ascii3 = document.querySelector('.ascii3');
+    ascii3.style.transform = 'translateX(50px)';
     setTimeout(() => {
-      ascii.style.transform = 'translateX(0px)';
+      ascii3.style.transform = 'translateX(0px)';
     }, 3000);
   }
 
-  // Trigger ASCII movement every 5 seconds
-  setInterval(moveAsciiInOut, 5000);
+  // Trigger ASCII3 movement every 5 seconds
+  setInterval(moveAscii3InOut, 5000);
 </script>
 
 <style>
@@ -100,8 +100,8 @@
     width: 100vw;
     height: 100vh;
     grid-template-areas:
-      "link-dev1 link-dev1 link-dev2 link-dev2 ascii ascii"
-      "link-dev1 link-dev1 link-dev2 link-dev2 ascii ascii"
+      "link-dev1 link-dev1 link-dev2 link-dev2 ascii3 ascii3"
+      "link-dev1 link-dev1 link-dev2 link-dev2 ascii3 ascii3"
       ". . . title-dev title-dev ."
       ". . . title-dev title-dev ."
       ". description-dev description-dev description-dev description-dev ."
@@ -141,11 +141,11 @@
     text-align: right;
   }
 
-  .ascii {
-    grid-area: ascii;
+  .ascii3 {
+    grid-area: ascii3;
     text-align: right;
     font-family: monospace;
-    transition: transform 0.3s ease-in-out; /* Add transition for ASCII movement */
+    transition: transform 0.3s ease-in-out; /* Add transition for ASCII3 movement */
     font-size: 14px;
   }
 
@@ -199,7 +199,7 @@
       padding: 0.5rem;
     }
 
-    .ascii {
+    .ascii3 {
       display: none;
     }
 
