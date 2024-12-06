@@ -1,25 +1,23 @@
-<div class="content me">
-  <h1>I bridge technology and affections</h1>
-  <p>
+<div class="grid-layout1">
+  <h2 class="sub-title-me">Hi, I am Paloma Oliveira</h2>
+  <h1 class="title-me">I bridge technology and affections</h1>
+  <img class="image-me" src="public/images/p-maestra.png"/>
+  <p class="description-me">
     I am a full stack developer with user centric approach.
-    <br><br>
     I am community driven [<a href="https://berlin.pyladies.com/" target="_blank">
     PyLadies Berlin & Germany organizer</a>] contributing to open source foundations
     [<a href="https://python-verband.org/" target="_blank">
     PySV Python Software Verband</a> board member &
     <a href="https://openjsf.org/" target="_blank">
     OpenJS Foundation</a> program committee].
-    <br><br>
     I am a passionate advocate for free libre open source.
-    <br><br>
     I am deeply committed to gender equity and accessibility.
-    <br><br>
     I exercise critical thinking about the technology we create and use - as a curator and artist,
     and I foment critical technology research and production with the <a href="https://netzkunst.berlin/" target="_blank">
     Zentrum für Netzkunst Berlin</a> - as co-founder.
   </p>
   <!-- ASCII2 Text -->
-  <aside class="ascii2">
+  <aside class="ascii">
     <pre>
             ★ ⁺.
   
@@ -33,31 +31,83 @@
 
 <!-- CSS -->
 <style>
-  html, body {
-    overflow: hidden;
-    margin: 0;
+  /* Grid Container */
+  .grid-layout1 {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas:
+      "sub sub sub img img"
+      "title title title img img"
+      "title title title img img"
+      "title title title img img"
+      ". . desc desc desc"
+      "ascii ascii desc desc desc";
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    padding: 3rem;
   }
 
-  .content {
-    padding: 5rem;
-    align-items: center;
+  .grid-layout1 > * {
+    overflow: hidden;  /* Prevent elements inside grid from overflowing */
   }
 
-  .me h1 {
+  .title-me {
+    grid-area: title;
     color: #ea5500;
   }
+  .sub-title-me {
+    grid-area: sub;
+    color: #873100;
+  }
+  .description-me {
+    grid-area: desc;
+  }
+  .image-me {
+    grid-area: img;
+    width: 450px;
+  }
+  .ascii {
+    grid-area: ascii;
+  }
 
-  .me a {
+
+  .description-me a {
     color: #1D0370;
     text-decoration: none;
   }
-  a:hover {
+  .description-me a:hover {
     text-decoration: underline;
   }
 
-  @media (max-width: 768px) {
-    .content {
-      padding: 1rem;
+  @media (max-width: 1024px) {
+    .grid-layout1 {
+      grid-template-areas:
+        "sub"
+        "img"
+        "img"
+        "title"
+        "title"
+        "ascii";
+      grid-template-rows: auto;
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding: 0.5rem;
+    }
+
+    .description-me {
+      display: none;
+    }
+    .sub-title-me,
+    .title-me {
+      text-align: center;
+      font-size: 2.3rem;
+    }
+    .image-me, .ascii {
+      justify-self: center;
+    }
+    .image-me {
+      max-width: 70%;
     }
   }
 </style>
