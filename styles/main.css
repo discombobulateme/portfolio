@@ -82,7 +82,15 @@ a:hover {
 
 .moving-gif {
   position: absolute;
+  width: 230px;
+  animation: move 7s infinite alternate;
 }
+
+.moving-gif img {
+  width: 100px;
+  height: auto;
+}
+
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
