@@ -75,6 +75,13 @@
     imageElement.src = imageUrl;
   }
 
+  document.querySelectorAll('.grid-layout3 a').forEach(link => {
+    link.addEventListener('touchstart', function () {
+      const imageUrl = this.getAttribute('onmouseover').match(/'(.*?)'/)[1];
+      changeImage(imageUrl);
+    });
+  });
+
   // ASCII3 movement
   function moveAscii3InOut() {
     const ascii3 = document.querySelector('.ascii3');
@@ -162,17 +169,6 @@
     margin-bottom: 1rem;
   }
 
-  .moving-gif {
-    position: absolute;
-    width: 230px;
-    animation: move 7s infinite alternate;
-  }
-
-  .moving-gif img {
-    width: 100px;
-    height: auto;
-  }
-
   .arrow {
     font-size: 1.2rem;
     margin-right: 10px;
@@ -182,16 +178,14 @@
   @media (max-width: 768px) {
     .grid-layout3 {
       grid-template-areas:
-        "link-dev1"
-        "link-dev2"
-        "title-dev"        
-        "image"
-        "link-dev3"
-        "link-dev4"
-        "link-dev5";
+        "link-dev1 link-dev2"
+        "title-dev title-dev"        
+        "image image"
+        "link-dev3 link-dev4"
+        "link-dev5 link-dev5";
       grid-template-rows: auto;
-      grid-template-columns: 1fr;
-      padding: 0;
+      grid-template-columns: 2fr;
+      padding: 0.5rem;
       gap: 0;
     }
 
