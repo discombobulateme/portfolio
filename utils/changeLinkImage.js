@@ -1,46 +1,49 @@
-let cycleImagesInterval;
-let isCycling = true;
-let currentIndex = 0;
+let intervals = {}; // Store intervals per section
+let indices = {}; // Store currentIndex per section
+let isCycling = {}; // Store cycling state per section
 
-export function changeImage(imageUrl, targetId = 'image-left') {
+export function changeImage(imageUrl, targetId) {
   const imageElement = document.getElementById(targetId);
   if (imageElement) {
     imageElement.src = imageUrl;
   }
 }
 
-export function startImageCycle(selector, context = document, targetId = 'image-left') {
+export function startImageCycle(selector, context, targetId) {
+  if (!indices[targetId]) indices[targetId] = 0; // Initialize index if not set
+  if (!isCycling[targetId]) isCycling[targetId] = true; // Initialize cycling state
+
   const links = context.querySelectorAll(selector);
   if (links.length === 0) return;
 
-  cycleImagesInterval = setInterval(() => {
-    if (!isCycling) return;
+  intervals[targetId] = setInterval(() => {
+    if (!isCycling[targetId]) return;
 
-    const link = links[currentIndex];
+    const link = links[indices[targetId]];
     const imageUrl = link.getAttribute('onmouseover').match(/'(.*?)'/)[1];
     changeImage(imageUrl, targetId);
 
-    currentIndex = (currentIndex + 1) % links.length;
+    indices[targetId] = (indices[targetId] + 1) % links.length; // Move to the next link
   }, 2000);
 }
 
-export function resumeImageCycle(selector, context = document, targetId = 'image-left') {
-  if (!isCycling) {
-    isCycling = true;
+export function stopImageCycle(targetId) {
+  isCycling[targetId] = false;
+  clearInterval(intervals[targetId]);
+}
+
+export function resumeImageCycle(selector, context, targetId) {
+  if (!isCycling[targetId]) {
+    isCycling[targetId] = true;
     startImageCycle(selector, context, targetId);
   }
 }
 
-export function stopImageCycle() {
-  isCycling = false;
-  clearInterval(cycleImagesInterval);
-}
-
-export function initializeImageCycle(selector, context = document, targetId = 'image-left') {
+export function initializeImageCycle(selector, context, targetId) {
   const links = context.querySelectorAll(selector);
 
-  if (cycleImagesInterval) {
-    clearInterval(cycleImagesInterval);
+  if (intervals[targetId]) {
+    clearInterval(intervals[targetId]); // Clear existing interval for this target
   }
 
   links.forEach((link) => {
@@ -48,7 +51,7 @@ export function initializeImageCycle(selector, context = document, targetId = 'i
     link.addEventListener('mouseover', function () {
       const imageUrl = link.getAttribute('onmouseover').match(/'(.*?)'/)[1];
       changeImage(imageUrl, targetId);
-      stopImageCycle();
+      stopImageCycle(targetId);
     });
 
     link.addEventListener('mouseout', function () {
@@ -70,7 +73,7 @@ export function initializeImageCycle(selector, context = document, targetId = 'i
           touched = false;
         }, 500);
       }
-      stopImageCycle();
+      stopImageCycle(targetId);
     });
   });
 
