@@ -2,8 +2,8 @@
   <!-- Top Links (side by side) -->
   <div class="link-os1">
     <a href="https://www.meetup.com/PyLadies-Berlin/" target="_blank" 
-      onmouseover="changeOSImg('public/images/hack-nights.png')" 
-      onfocus="changeOSImg('public/images/hack-nights.png')">
+      onmouseover="changeImage('public/images/hack-nights.png')" 
+      onfocus="changeImage('public/images/hack-nights.png')">
       <span class="arrow">↗</span> hack nights
     </a>
     <p>
@@ -13,8 +13,8 @@
   </div>
   <div class="link-os2">
     <a href="https://www.youtube.com/watch?v=bsQ9-e7L5lU&list=PLq-odUc2x7i-ww77dGasjo-d54ohCAb8k&index=20" target="_blank" 
-      onmouseover="changeOSImg('public/images/foss-backstage.png')" 
-      onfocus="changeOSImg('public/images/foss-backstage.png')">
+      onmouseover="changeImage('public/images/foss-backstage.png')" 
+      onfocus="changeImage('public/images/foss-backstage.png')">
       <span class="arrow">↗</span> Freedom vs Sustainable Business: A Candid Necessary Debate
     </a>
     <p>
@@ -48,24 +48,24 @@
   <!-- Bottom Links (side by side) -->
   <div class="link-os3">
     <a href="https://python-verband.org/" target="_blank" target="_blank" 
-      onmouseover="changeOSImg('public/images/pysv.jpg')" 
-      onfocus="changeOSImg('public/images/pysv.jpg')">
+      onmouseover="changeImage('public/images/pysv.jpg')" 
+      onfocus="changeImage('public/images/pysv.jpg')">
       <span class="arrow">↗</span> contributing to foundations
     </a>
     <p>OpenJS Foundation program commitee & Python Software Verband board member</p>
   </div>
   <div class="link-os4">
     <a href="https://www.medhacker.com.br/" target="_blank"
-      onmouseover="changeOSImg('public/images/medhacker.png')" 
-      onfocus="changeOSImg('public/images/medhacker.png')">
+      onmouseover="changeImage('public/images/medhacker.png')" 
+      onfocus="changeImage('public/images/medhacker.png')">
       <span class="arrow">↗</span> medhackers
     </a>
     <p>Contributing to what touch us all: opening medicine and doctor-patient relashionship.</p>
   </div>
   <div class="link-os5">
     <a href="https://www.un.org/techenvoy/fr/content/ospos-good-2024" target="_blank"
-      onmouseover="changeOSImg('public/images/un.png')" 
-      onfocus="changeOSImg('public/images/un.png')">
+      onmouseover="changeImage('public/images/un.png')" 
+      onfocus="changeImage('public/images/un.png')">
       <span class="arrow">↗</span> OSPO's For Good@UN
     </a>
     <p>
@@ -75,13 +75,11 @@
   </div>
 </div>
 
-<script>
-  // Change image on hover and focus
-  function changeOSImg(imageUrl) {
-    const imageElement = document.getElementById('image-os');
-    imageElement.src = imageUrl;
-  }
+<script type="module">
+  import { initializeImageCycle } from './utils/changeLinkImage.js';
 
+  initializeImageCycle('a', document.querySelector('.grid-layout4'), 'image-os');
+  
   // ASCII movement
   function moveAsciiInOut() {
     const ascii = document.querySelector('.ascii4');

@@ -68,19 +68,9 @@
   </div>
 </div>
 
-<script>
-  // Change image on hover and focus
-  function changeImage(imageUrl) {
-    const imageElement = document.getElementById('image-left');
-    imageElement.src = imageUrl;
-  }
-
-  document.querySelectorAll('.grid-layout3 a').forEach(link => {
-    link.addEventListener('touchstart', function () {
-      const imageUrl = this.getAttribute('onmouseover').match(/'(.*?)'/)[1];
-      changeImage(imageUrl);
-    });
-  });
+<script type="module">
+  import { initializeImageCycle } from './utils/changeLinkImage.js';
+  initializeImageCycle('a', document.querySelector('.grid-layout3'), 'image-left');
 
   // ASCII3 movement
   function moveAscii3InOut() {
