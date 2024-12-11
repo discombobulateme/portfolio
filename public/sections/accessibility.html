@@ -1,56 +1,192 @@
-<div>
-  <h1>Critical Disability</h1>
-  <p>
-    Critical disability is a political fields of studies.
-    It is a critical approach to disability that seeks to understand the ways in which disability is socially constructed and maintained.
-    After taking a post-grad in critical disability studies, I have been working on the intersection of art, disability and accessibility.
-  </p>
-
-  <!-- External Links and Descriptions -->
-  <div class="links-container">
-    <div class="link-item">
-      <a href="https://17instituto.org/coloquio-xxv-arte-y-discapacidad-de-la-norma-al-nombre/" target="_blank">
-        <span class="arrow">↗</span> de la norma al nombre
-      </a>
-      <p>
-        curator, part of the XXV international symposium art & “disability”: from norm to name,
-        by 17 Critical Studies Institute
-      </p>
-    </div>
-
-    <div class="link-item">
-      <a href="https://medium.com/@pcultural/po%C3%A9ticas-del-espacio-9acd40b2b2c7" target="_blank">
-        <span class="arrow">↗</span> arqueologia de la autonomia
-      </a>
-      <p>curator, research on radical accessibility in art and museums</p>
-    </div>
+<div class="grid-layout6">
+  <div class="link-acc1">
+    <a href="https://17instituto.org/coloquio-xxv-arte-y-discapacidad-de-la-norma-al-nombre/" target="_blank" 
+      onmouseover="changeImage('public/images/norma0.png')" 
+      onfocus="changeImage('public/images/norma0.png')">
+      <span class="arrow">↗</span> de la norma al nombre
+    </a>
+    <p>
+      Curator, part of the XXV international symposium art & “disability”: from norm to name,
+      by 17 Critical Studies Institute.
+    </p>
   </div>
+  <div class="link-acc2">
+    <a href="#" 
+      onmouseover="startImageLoop()" 
+      onfocus="startImageLoop()" 
+      onclick="startImageLoop(); return false;">
+      <span class="arrow">↗</span> arqueologia de la autonomia
+    </a>
+    <p>Curator, research on radical accessibility in art and museums.</p>
+  </div>
+  <div class="link-acc3">
+    <a href="https://criticaldisability.org/" target="_blank"
+      onmouseover="changeImage('public/images/arqueologia5.jpg')" 
+      onfocus="changeImage('public/images/arqueologia5.jpg')">
+      <span class="arrow">↗</span> critical disability research
+    </a>
+    <p>
+      Deepening the discourse of disability and accessibility as political and cultural fields.
+    </p>
+  </div>
+  <div class="link-acc4">
+    <a href="https://medium.com/@pcultural/po%C3%A9ticas-del-espacio-9acd40b2b2c7" target="_blank">
+      <span class="arrow">↗</span> museums and accessibility
+    </a>
+    <p>
+      Transforming museums into inclusive spaces through accessible design principles.
+      External link to reflective article on the theme based on a few curatorship experiences.
+    </p>
+  </div>
+  <div class="link-acc5">
+    <a href="public/pdfs/transmutacion.pdf" download>
+      <span class="arrow">↗</span> transmutación: alquimias del espacio, Jaime Lobato
+    </a>
+    <p>Curator, research on art, science, technology, accessibility and feelings intersections we cannot name.
+      Download exhibition PDF
+    </p>
+  </div>
+
+  <!-- ASCII Text -->
+  <aside class="ascii6">
+    <pre>
+      |￣￣￣￣￣￣ |
+      | NOTHING   |
+      |  ABOUT US |
+      | WITHOUT US| 
+      |_＿＿＿＿＿__| 
+    (\__/) || 
+    (•ㅅ•) || 
+    / 　 づ
+  </pre>
+  </aside>
+
+  <!-- Main Title and Paragraph -->
+  <h1 class="title-acc">critical disability</h1>
+  <p class="description-acc">
+    Accessibility is a bridge between worlds, making art and information universally accessible.
+    My work involves exploring radical accessibility and critical disability studies to transform
+    cultural spaces.
+  </p>
+  <!-- Centered and Enlarged Image -->
+  <img class="image-acc" src="public/images/arqueologia1.jpg" alt="Swing, a photo from Carolina Sparagoza piece" id="image-acc" />
 </div>
 
+<script type="module">
+  import { initializeImageCycle } from './utils/changeLinkImage.js';
+
+  initializeImageCycle('a', document.querySelector('.grid-layout6'), 'image-acc');
+
+  // ASCII movement
+  function moveAsciiInOut() {
+    const ascii = document.querySelector('.ascii6');
+    ascii.style.transform = 'translateX(50px)';
+    setTimeout(() => {
+      ascii.style.transform = 'translateX(0px)';
+    }, 3000);
+  }
+
+  // Trigger ASCII movement every 5 seconds
+  setInterval(moveAsciiInOut, 5000);
+
+  // Loop through images for "arqueologia de la autonomia"
+  let arqueologiaImages = [
+    'public/images/norma0.png',
+    'public/images/norma1.png',
+    'public/images/norma2.png',
+    'public/images/norma3.png',
+    'public/images/norma4.png'
+  ];
+  let arqueologiaIndex = 0;
+  let arqueologiaInterval;
+
+  function startImageLoop() {
+    clearInterval(arqueologiaInterval);
+    arqueologiaInterval = setInterval(() => {
+      const imageElement = document.getElementById('image-acc');
+      if (imageElement) {
+        imageElement.src = arqueologiaImages[arqueologiaIndex];
+        arqueologiaIndex = (arqueologiaIndex + 1) % arqueologiaImages.length;
+      }
+    }, 2000);
+  }
+
+  function stopImageLoop() {
+    clearInterval(arqueologiaInterval);
+  }
+</script>
+
 <style>
-  .links-container {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
+  h1 {
+    margin: 0;
+    color: #0044CC;
   }
 
-  .link-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 1rem;
+  /* Grid Container */
+  .grid-layout6 {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas:
+    "desc desc desc desc img img img"
+    "desc desc desc desc img img img"
+    "ascii ascii link1 link1 img img img"
+    "ascii ascii link1 link1 img img img"
+    "link2 link2 link3 link3 img img img"
+    "link2 link2 link3 link3 img img img"
+    "link4 link4 link5 link5 . . ."
+    "link4 link4 link5 link5 . . ."
+    "title title title title title . ."
+    "title title title title title . .";
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    gap: 20px;
+    padding: 3rem;
   }
 
-  .link-item a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+  .grid-layout6 > * {
+    overflow: hidden;  /* Prevent elements inside grid from overflowing */
+  }
+  
+  .link-acc1 {
+    grid-area: link1;
+  }
+  .link-acc2 {
+    grid-area: link2;
+  }
+  .link-acc3 {
+    grid-area: link3;
+  }
+  .link-acc4 {
+    grid-area: link4;
+  }
+  .link-acc5 {
+    grid-area: link5;
+  }
+  .title-acc {
+    grid-area: title;
+    text-align: right;
   }
 
-  .link-item a:hover {
-    text-decoration: underline;
+  .ascii6 {
+    grid-area: ascii;
+    text-align: left;
+    font-family: monospace;
+    transition: transform 0.3s ease-in-out;
+    font-size: 14px;
+  }
+
+  .description-acc {   
+    grid-area: desc;   
+    text-align: left;
+  }
+
+  .image-acc {
+    grid-area: img;
+    width: 350px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
   }
 
   .arrow {
@@ -58,8 +194,60 @@
     margin-right: 10px;
   }
 
-  .link-item p {
-    font-size: 1rem;
-    margin-top: 5px;
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .grid-layout6 {
+      grid-template-areas:
+        "link2 link2"
+        "link1 link1"
+        "img img"
+        "link3 link4"
+        "link3 link4"
+        "title title";        
+      grid-template-rows: auto;
+      grid-template-columns: 2fr;
+      padding: 0.5rem;
+      gap: 0;
+    }
+
+    .grid-layout6 {
+      padding: 0.5rem;
+    }
+
+    .ascii6 {
+      display: none;
+    }
+
+    .grid-layout6 .link-acc1 p,
+    .grid-layout6 .link-acc2 p,
+    .grid-layout6 .link-acc3 p,
+    .grid-layout6 .link-acc4 p,
+    .grid-layout6 .description-acc {
+      display: none;
+    }
+
+    .grid-layout6 .link-acc1,
+    .grid-layout6 .link-acc2,
+    .grid-layout6 .link-acc3,
+    .grid-layout6 .link-acc4 {
+      text-align: center;
+    }
+
+    .grid-layout6 > a {
+      font-size: medium;
+    }
+
+    .grid-layout6 > .arrow {
+      font-size: small;
+    }
+
+    .image-acc {
+      width: 100%;
+    }
+
+    .grid-layout6 .title-acc {
+      text-align: center;
+      font-size: 4rem;
+    }
   }
 </style>
