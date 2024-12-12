@@ -3,6 +3,8 @@
   <div class="link-acc1">
     <button 
       class="carousel-button" 
+      onmouseover="startCarousel('norma')" 
+      onfocus="startCarousel('norma')"
       onclick="startCarousel('norma')">
       <img src="public/icons/carousel.svg" alt="Image carousel icon" class="icon" />
       de la norma al nombre
@@ -23,6 +25,8 @@
   <div class="link-acc2">
     <button 
       class="carousel-button" 
+      onmouseover="startCarousel('arqueologia')" 
+      onfocus="startCarousel('arqueologia')"
       onclick="startCarousel('arqueologia')">
       <img src="public/icons/carousel.svg" alt="Image carousel icon" class="icon" />
       arqueologia de la autonomia
@@ -35,9 +39,11 @@
   <div class="link-acc3">
     <button 
       class="download-button" 
-      onclick="handlePDFDownload('public/pdfs/transmutacion.pdf', 'public/images/transmutacion.png')">
+      onmouseover="previewPDFImage('public/images/transmutacion.jpg')" 
+      onfocus="previewPDFImage('public/images/transmutacion.jpg')"
+      onclick="handlePDFDownload('public/pdfs/transmutacion.pdf', 'public/images/transmutacion.jpg')">
       <img src="public/icons/pdf.svg" alt="PDF download icon" class="icon" />
-      transmutación: alquimias del espacio, Jaime Lobato
+      [download PDF] transmutación: alquimias del espacio, Jaime Lobato
     </button>
     <p>
       Curator, research on art, science, technology, accessibility and feelings intersections we cannot name.
@@ -106,15 +112,21 @@
     if (!images) return;
 
     let index = 0;
-    clearInterval(activeInterval);
 
-    activeInterval = setInterval(() => {
-      const imgElement = document.getElementById('image-acc');
+    // Immediately set the first image
+    const imgElement = document.getElementById('image-acc');
       if (imgElement) {
         imgElement.src = images[index];
-        index = (index + 1) % images.length;
       }
-    }, 2000);
+
+      clearInterval(activeInterval);
+
+      activeInterval = setInterval(() => {
+        if (imgElement) {
+          index = (index + 1) % images.length;
+          imgElement.src = images[index];
+        }
+      }, 2000);
   }
 
   function handlePDFDownload(pdfPath, imgPath) {
@@ -131,6 +143,13 @@
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  }
+
+  function previewPDFImage(imagePath) {
+    const imgElement = document.getElementById('image-acc');
+    if (imgElement) {
+      imgElement.src = imagePath; // Preview image on hover/focus
+    }
   }
 
   // ASCII movement
@@ -225,7 +244,6 @@
     display: flex;
     align-items: center;
     padding: 10px 15px;
-    background-color: #f4b7b1;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
@@ -233,8 +251,18 @@
     transition: background-color 0.3s;
   }
 
-  .carousel-button:hover, .download-button:hover {
+  .carousel-button {
+    background-color: #f4b7b1;
+  }
+  .carousel-button:hover {
     background-color: #f8f0be;
+  }
+
+  .download-button {
+    background-color: #f8f0be;
+  }
+  .download-button:hover {
+    background-color: #f4b7b1;
   }
 
   .icon {
