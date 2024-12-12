@@ -12,14 +12,10 @@
     <p>
       Curator, part of the XXV international symposium art & “disability”: from norm to name,
       by 17 Critical Studies Institute.
+      <a href="https://17instituto.org/coloquio-xxv-arte-y-discapacidad-de-la-norma-al-nombre/" target="_blank" 
+        <span class="arrow">↗</span> de la norma al nombre simposium
+      </a>
     </p>
-    <a href="https://17instituto.org/coloquio-xxv-arte-y-discapacidad-de-la-norma-al-nombre/" target="_blank" 
-      <span class="arrow">↗</span> de la norma al nombre simposium
-    </a>
-    <!-- <img id="norma-img" src="public/images/norma0.png" 
-      alt="de la norma al nombre exhibition flying informing artists names" 
-      class="loop-image" 
-    /> -->
   </div>
 
   <div class="link-acc2">
@@ -283,12 +279,12 @@
   @media (max-width: 768px) {
     .grid-layout6 {
       grid-template-areas:
-        "link2 link2"
-        "link1 link1"
-        "img img"
-        "link3 link4"
-        "link3 link4"
-        "title title";        
+        "link1 link2"
+        "link1 link2"
+        "link4 link4"
+        "link3 link3"
+        "title title"        
+        "img img";
       grid-template-rows: auto;
       grid-template-columns: 2fr;
       padding: 0.5rem;
@@ -316,10 +312,7 @@
     .grid-layout6 .link-acc3,
     .grid-layout6 .link-acc4 {
       text-align: center;
-    }
-
-    .grid-layout6 > a {
-      font-size: medium;
+      justify-self: center;
     }
 
     .grid-layout6 > .arrow {
@@ -327,7 +320,8 @@
     }
 
     .image-acc {
-      width: 100%;
+      max-height: 50vh;
+      justify-self: center;
     }
 
     .grid-layout6 .title-acc {
