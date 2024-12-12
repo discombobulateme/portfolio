@@ -1,34 +1,50 @@
 <div class="grid-layout6">
+  
   <div class="link-acc1">
-    <a href="https://17instituto.org/coloquio-xxv-arte-y-discapacidad-de-la-norma-al-nombre/" target="_blank" 
-      onmouseover="changeImage('public/images/norma0.png')" 
-      onfocus="changeImage('public/images/norma0.png')">
-      <span class="arrow">↗</span> de la norma al nombre
-    </a>
+    <button 
+      class="carousel-button" 
+      onclick="startCarousel('norma')">
+      <img src="public/icons/carousel.svg" alt="Image carousel icon" class="icon" />
+      de la norma al nombre
+    </button>
     <p>
       Curator, part of the XXV international symposium art & “disability”: from norm to name,
       by 17 Critical Studies Institute.
     </p>
+    <a href="https://17instituto.org/coloquio-xxv-arte-y-discapacidad-de-la-norma-al-nombre/" target="_blank" 
+      <span class="arrow">↗</span> de la norma al nombre simposium
+    </a>
+    <!-- <img id="norma-img" src="public/images/norma0.png" 
+      alt="de la norma al nombre exhibition flying informing artists names" 
+      class="loop-image" 
+    /> -->
   </div>
+
   <div class="link-acc2">
-    <a href="#" 
-      onmouseover="startImageLoop()" 
-      onfocus="startImageLoop()" 
-      onclick="startImageLoop(); return false;">
-      <span class="arrow">↗</span> arqueologia de la autonomia
-    </a>
-    <p>Curator, research on radical accessibility in art and museums.</p>
-  </div>
-  <div class="link-acc3">
-    <a href="https://criticaldisability.org/" target="_blank"
-      onmouseover="changeImage('public/images/arqueologia5.jpg')" 
-      onfocus="changeImage('public/images/arqueologia5.jpg')">
-      <span class="arrow">↗</span> critical disability research
-    </a>
+    <button 
+      class="carousel-button" 
+      onclick="startCarousel('arqueologia')">
+      <img src="public/icons/carousel.svg" alt="Image carousel icon" class="icon" />
+      arqueologia de la autonomia
+    </button>
     <p>
-      Deepening the discourse of disability and accessibility as political and cultural fields.
+      Curator, research on radical accessibility in art and museums.
     </p>
   </div>
+
+  <div class="link-acc3">
+    <button 
+      class="download-button" 
+      onclick="handlePDFDownload('public/pdfs/transmutacion.pdf', 'public/images/transmutacion.png')">
+      <img src="public/icons/pdf.svg" alt="PDF download icon" class="icon" />
+      transmutación: alquimias del espacio, Jaime Lobato
+    </button>
+    <p>
+      Curator, research on art, science, technology, accessibility and feelings intersections we cannot name.
+      Download exhibition PDF.
+    </p>
+  </div>
+
   <div class="link-acc4">
     <a href="https://medium.com/@pcultural/po%C3%A9ticas-del-espacio-9acd40b2b2c7" target="_blank">
       <span class="arrow">↗</span> museums and accessibility
@@ -36,14 +52,6 @@
     <p>
       Transforming museums into inclusive spaces through accessible design principles.
       External link to reflective article on the theme based on a few curatorship experiences.
-    </p>
-  </div>
-  <div class="link-acc5">
-    <a href="public/pdfs/transmutacion.pdf" download>
-      <span class="arrow">↗</span> transmutación: alquimias del espacio, Jaime Lobato
-    </a>
-    <p>Curator, research on art, science, technology, accessibility and feelings intersections we cannot name.
-      Download exhibition PDF
     </p>
   </div>
 
@@ -55,10 +63,10 @@
       |  ABOUT US |
       | WITHOUT US| 
       |_＿＿＿＿＿__| 
-    (\__/) || 
-    (•ㅅ•) || 
+    (\__/)
+    (•ㅅ•)
     / 　 づ
-  </pre>
+    </pre>
   </aside>
 
   <!-- Main Title and Paragraph -->
@@ -72,10 +80,58 @@
   <img class="image-acc" src="public/images/arqueologia1.jpg" alt="Swing, a photo from Carolina Sparagoza piece" id="image-acc" />
 </div>
 
-<script type="module">
-  import { initializeImageCycle } from './utils/changeLinkImage.js';
+<script>
+  let activeInterval = null;
 
-  initializeImageCycle('a', document.querySelector('.grid-layout6'), 'image-acc');
+  const imageSets = {
+    norma: [
+      'public/images/norma0.png',
+      'public/images/norma1.png',
+      'public/images/norma2.png',
+      'public/images/norma3.png',
+      'public/images/norma4.png',
+    ],
+    arqueologia: [
+      'public/images/arqueologia0.jpg',
+      'public/images/arqueologia1.jpg',
+      'public/images/arqueologia2.jpg',
+      'public/images/arqueologia3.jpg',
+      'public/images/arqueologia4.jpg',
+      'public/images/arqueologia5.jpg',
+    ],
+  };
+
+  function startCarousel(setKey) {
+    const images = imageSets[setKey];
+    if (!images) return;
+
+    let index = 0;
+    clearInterval(activeInterval);
+
+    activeInterval = setInterval(() => {
+      const imgElement = document.getElementById('image-acc');
+      if (imgElement) {
+        imgElement.src = images[index];
+        index = (index + 1) % images.length;
+      }
+    }, 2000);
+  }
+
+  function handlePDFDownload(pdfPath, imgPath) {
+    clearInterval(activeInterval); // Stop any active carousel
+
+    const imgElement = document.getElementById('image-acc');
+    if (imgElement) {
+      imgElement.src = imgPath; // Set the image
+    }
+
+    const link = document.createElement('a');
+    link.href = pdfPath;
+    link.download = pdfPath.split('/').pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 
   // ASCII movement
   function moveAsciiInOut() {
@@ -84,35 +140,6 @@
     setTimeout(() => {
       ascii.style.transform = 'translateX(0px)';
     }, 3000);
-  }
-
-  // Trigger ASCII movement every 5 seconds
-  setInterval(moveAsciiInOut, 5000);
-
-  // Loop through images for "arqueologia de la autonomia"
-  let arqueologiaImages = [
-    'public/images/norma0.png',
-    'public/images/norma1.png',
-    'public/images/norma2.png',
-    'public/images/norma3.png',
-    'public/images/norma4.png'
-  ];
-  let arqueologiaIndex = 0;
-  let arqueologiaInterval;
-
-  function startImageLoop() {
-    clearInterval(arqueologiaInterval);
-    arqueologiaInterval = setInterval(() => {
-      const imageElement = document.getElementById('image-acc');
-      if (imageElement) {
-        imageElement.src = arqueologiaImages[arqueologiaIndex];
-        arqueologiaIndex = (arqueologiaIndex + 1) % arqueologiaImages.length;
-      }
-    }, 2000);
-  }
-
-  function stopImageLoop() {
-    clearInterval(arqueologiaInterval);
   }
 </script>
 
@@ -132,12 +159,12 @@
     "desc desc desc desc img img img"
     "ascii ascii link1 link1 img img img"
     "ascii ascii link1 link1 img img img"
-    "link2 link2 link3 link3 img img img"
-    "link2 link2 link3 link3 img img img"
-    "link4 link4 link5 link5 . . ."
-    "link4 link4 link5 link5 . . ."
-    "title title title title title . ."
-    "title title title title title . .";
+    "link2 link2 link4 link4 img img img"
+    "link2 link2 link4 link4 img img img"
+    "link3 link3 link3 . . . ."
+    "link3 link3 link3 . . . ."
+    "title title title title title title title"
+    "title title title title title title title";
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(7, 1fr);
     gap: 20px;
@@ -192,6 +219,36 @@
   .arrow {
     font-size: 1.2rem;
     margin-right: 10px;
+  }
+
+  .carousel-button, .download-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f4b7b1;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .carousel-button:hover, .download-button:hover {
+    background-color: #f8f0be;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .loop-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
   }
 
   /* Responsive Design */
