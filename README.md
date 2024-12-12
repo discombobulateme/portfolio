@@ -1,9 +1,9 @@
 /portfolio
   ├── /public
   │     ├── /images
-  │     │     ├── image1.png
-  │     │     ├── image2.png
-  │     │     ├── image3.png
+  │     │     ├── image1.webp
+  │     │     ├── image2.webp
+  │     │     ├── image3.webp
   │     │     └── moving-cat.gif
   │     ├── styles.css
   │     └── index.html
