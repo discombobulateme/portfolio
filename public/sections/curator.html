@@ -15,8 +15,8 @@
 
   <div class="link-cur1">
     <a href="https://hibrida.eca.usp.br/?lang=en" target="_blank"
-      onmouseover="changeImageCur('public/images/hack-nights.webp')"
-      onfocus="changeImageCur('public/images/hack-nights.webp')">
+      onmouseover="changeImageCur('public/images/hibrida.webp')"
+      onfocus="changeImageCur('public/images/hibrida.webp')">
       <span class="arrow">↗</span> Hibrida
     </a>
     <p>São Paulo · Mexico City · 2014</p>
@@ -51,8 +51,8 @@
 
   <div class="link-cur5">
     <a href="https://izi.travel/ru/f68c-planetary-atoll-connecting-latin-american-dots/en" target="_blank"
-      onmouseover="changeImageCur('public/images/un.webp')"
-      onfocus="changeImageCur('public/images/un.webp')">
+      onmouseover="changeImageCur('public/images/planetary-atoll.webp')"
+      onfocus="changeImageCur('public/images/planetary-atoll.webp')">
       <span class="arrow">↗</span> Planetary Atoll
     </a>
     <p>Connecting Latin American Dots · Berlin · 2022</p>
@@ -64,10 +64,36 @@
 </div>
 
 <script>
+  const curatorCarousel = [
+    'public/images/norma0.webp',
+    'public/images/planetary-atoll.webp',
+    'public/images/transmutacion.webp',
+    'public/images/tenderintelligences.webp',
+    'public/images/arqueologia0.webp',
+  ];
+
+  let curatorHovering = false;
+
   function changeImageCur(imageUrl) {
-    const imageElement = document.getElementById('image-cur');
-    imageElement.src = imageUrl;
+    curatorHovering = true;
+    document.getElementById('image-cur').src = imageUrl;
   }
+
+  // Resume carousel when mouse leaves any link
+  document.querySelectorAll('.link-cur1, .link-cur2, .link-cur3, .link-cur4, .link-cur5')
+    .forEach(div => {
+      div.addEventListener('mouseleave', () => { curatorHovering = false; });
+      div.addEventListener('blur', () => { curatorHovering = false; }, true);
+    });
+
+  // Auto-cycle randomly when not hovering
+  setInterval(() => {
+    if (!curatorHovering) {
+      const img = document.getElementById('image-cur');
+      const next = curatorCarousel[Math.floor(Math.random() * curatorCarousel.length)];
+      img.src = next;
+    }
+  }, 2000);
 
   function moveRandomly() {
     const gif = document.querySelector('.moving-gif');
