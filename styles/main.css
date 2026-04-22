@@ -6,7 +6,6 @@ html, body {
   padding: 0;
   height: 100%;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
   font-family: Arial, sans-serif; /* Fallback */
 }
 
@@ -78,6 +77,18 @@ a:hover {
 
 .layout5 {
   background: linear-gradient(135deg, #ec840d, #6dfdf6);
+}
+
+.layout6 {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+}
+
+.layout7 {
+  background: linear-gradient(135deg, #96fbc4, #f9f586);
+}
+
+.layout8 {
+  background: linear-gradient(135deg, #c471ed, #12c2e9);
 }
 
 .moving-gif {

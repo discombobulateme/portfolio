@@ -1,0 +1,198 @@
+<div class="grid-layout7">
+  <aside class="ascii7">
+    <pre>
+  |￣￣￣￣￣￣|
+  | words  |
+  |  are   |
+  | spells |
+  |＿＿＿＿＿＿|
+    (\__/) ||
+    (•ㅅ•) ||
+    / 　 づ
+    </pre>
+  </aside>
+
+  <h1 class="title-wr">writing</h1>
+
+  <p class="description-wr">
+    language, technology and the body —
+    essays, notes and words in between
+  </p>
+
+  <img class="image-wr" src="public/images/diversifying-opensouece-book.webp" alt="Writing preview" id="image-wr" />
+
+  <div class="link-wr1">
+    <a href="https://link.springer.com/book/10.1007/979-8-8688-0769-5" target="_blank"
+      onmouseover="changeImageWr('public/images/diversifying-opensouece-book.webp')"
+      onfocus="changeImageWr('public/images/diversifying-opensouece-book.webp')">
+      <span class="arrow">↗</span> Diversifying Open Source
+    </a>
+    <p>An Open Standards Playbook for Inclusive and Equitable Tech Projects — Apress, 2025</p>
+  </div>
+
+  <div class="link-wr2">
+    <a href="https://teses.usp.br/teses/disponiveis/27/27159/tde-01062015-161628/" target="_blank"
+      onmouseover="changeImageWr('public/images/diversifying-opensouece-book.webp')"
+      onfocus="changeImageWr('public/images/diversifying-opensouece-book.webp')">
+      <span class="arrow">↗</span> berlindas
+    </a>
+    <p>por uma estética do risco com acoplamentos para corpos potentes — Mestrado USP, 2014</p>
+  </div>
+
+  <div class="link-wr3">
+    <a href="https://opensource.com/users/discombobulateme" target="_blank"
+      onmouseover="changeImageWr('public/images/diversifying-opensouece-book.webp')"
+      onfocus="changeImageWr('public/images/diversifying-opensouece-book.webp')">
+      <span class="arrow">↗</span> opensource.com
+    </a>
+    <p>articles on community, open source and technology</p>
+  </div>
+</div>
+
+<script>
+  function changeImageWr(imageUrl) {
+    const imageElement = document.getElementById('image-wr');
+    imageElement.src = imageUrl;
+  }
+
+  function moveRandomly() {
+    const gif = document.querySelector('.moving-gif');
+    const maxX = window.innerWidth - gif.offsetWidth;
+    const maxY = window.innerHeight - gif.offsetHeight;
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+    gif.style.left = `${x}px`;
+    gif.style.top = `${y}px`;
+  }
+
+  setInterval(moveRandomly, 7000);
+
+  function moveAscii7InOut() {
+    const ascii7 = document.querySelector('.ascii7');
+    ascii7.style.transform = 'translateX(-30px)';
+    setTimeout(() => {
+      ascii7.style.transform = 'translateX(0px)';
+    }, 3000);
+  }
+
+  setInterval(moveAscii7InOut, 5000);
+</script>
+
+<style>
+  .grid-layout7 {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    grid-template-areas:
+      "img-wr img-wr . title-wr title-wr title-wr"
+      "img-wr img-wr . title-wr title-wr title-wr"
+      "img-wr img-wr ascii7 . . ."
+      "img-wr img-wr . link-wr1 link-wr1 ."
+      "img-wr img-wr . link-wr1 link-wr1 ."
+      "img-wr img-wr . link-wr2 link-wr2 ."
+      "img-wr img-wr . link-wr2 link-wr2 ."
+      ". desc-wr desc-wr link-wr3 link-wr3 ."
+      ". desc-wr desc-wr link-wr3 link-wr3 .";
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+  }
+
+  .title-wr {
+    grid-area: title-wr;
+    color: #3d0066;
+    text-align: right;
+    align-self: center;
+    margin: 0;
+  }
+
+  .description-wr {
+    grid-area: desc-wr;
+    align-self: center;
+  }
+
+  .ascii7 {
+    grid-area: ascii7;
+    font-family: monospace;
+    font-size: 13px;
+    transition: transform 0.3s ease-in-out;
+    align-self: end;
+  }
+
+  .image-wr {
+    grid-area: img-wr;
+    width: auto;
+    height: 350px;
+    border-radius: 8px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .link-wr1 {
+    grid-area: link-wr1;
+  }
+
+  .link-wr2 {
+    grid-area: link-wr2;
+  }
+
+  .link-wr3 {
+    grid-area: link-wr3;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+
+  .grid-layout7 a {
+    color: #700000;
+  }
+
+  @media (max-width: 768px) {
+    .grid-layout7 {
+      grid-template-areas:
+        "title-wr title-wr"
+        "img-wr img-wr"
+        "link-wr1 link-wr1"
+        "link-wr2 link-wr3";
+      grid-template-rows: auto;
+      grid-template-columns: 2fr;
+      padding: 0.5rem;
+      gap: 0.5rem;
+    }
+
+    .image-wr {
+      width: 100%;
+    }
+
+    .ascii7,
+    .description-wr {
+      display: none;
+    }
+
+    .link-wr1 a,
+    .link-wr2 a,
+    .link-wr3 a {
+      font-size: large;
+    }
+
+    .link-wr1,
+    .link-wr2,
+    .link-wr3 {
+      text-align: center;
+    }
+
+    .link-wr1 p,
+    .link-wr2 p,
+    .link-wr3 p {
+      display: none;
+    }
+
+    .title-wr {
+      text-align: center;
+      font-size: 4rem;
+    }
+  }
+</style>
