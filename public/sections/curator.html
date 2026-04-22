@@ -58,6 +58,15 @@
     <p>Connecting Latin American Dots · Berlin · 2022</p>
   </div>
 
+  <div class="link-cur6">
+    <a href="https://tenderintelligenc.es/" target="_blank"
+      onmouseover="changeImageCur('public/images/tenderintelligences.webp')"
+      onfocus="changeImageCur('public/images/tenderintelligences.webp')">
+      <span class="arrow">↗</span> Tender Intelligences
+    </a>
+    <p>memory, archives and AI</p>
+  </div>
+
   <p class="description-cur">
     creating spaces where unexpected things become possible
   </p>
@@ -80,7 +89,7 @@
   }
 
   // Resume carousel when mouse leaves any link
-  document.querySelectorAll('.link-cur1, .link-cur2, .link-cur3, .link-cur4, .link-cur5')
+  document.querySelectorAll('.link-cur1, .link-cur2, .link-cur3, .link-cur4, .link-cur5, .link-cur6')
     .forEach(div => {
       div.addEventListener('mouseleave', () => { curatorHovering = false; });
       div.addEventListener('blur', () => { curatorHovering = false; }, true);
@@ -125,15 +134,15 @@
     height: 100vh;
     padding: 2rem;
     grid-template-areas:
-      "img-cur img-cur img-cur . title-cur title-cur title-cur"
-      "img-cur img-cur img-cur . title-cur title-cur title-cur"
-      "img-cur img-cur img-cur . . ascii8 ."
-      ". . . link-cur1 link-cur1 link-cur2 link-cur2"
-      ". . . link-cur1 link-cur1 link-cur2 link-cur2"
-      ". . link-cur3 link-cur3 link-cur4 link-cur4 ."
-      ". . link-cur3 link-cur3 link-cur4 link-cur4 ."
-      "desc-cur desc-cur desc-cur link-cur5 link-cur5 . ."
-      "desc-cur desc-cur desc-cur link-cur5 link-cur5 . ."
+      "img-cur img-cur . title-cur title-cur title-cur ."
+      "img-cur img-cur . title-cur title-cur title-cur ."
+      "img-cur img-cur ascii8 . . . ."
+      ". . link-cur1 link-cur1 link-cur2 link-cur2 ."
+      ". . link-cur1 link-cur1 link-cur2 link-cur2 ."
+      ". link-cur3 link-cur3 link-cur4 link-cur4 . ."
+      ". link-cur3 link-cur3 link-cur4 link-cur4 . ."
+      "desc-cur desc-cur link-cur5 link-cur5 link-cur6 link-cur6 ."
+      "desc-cur desc-cur link-cur5 link-cur5 link-cur6 link-cur6 ."
       ". . . . . . .";
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(7, 1fr);
@@ -172,7 +181,8 @@
   .link-cur2 { grid-area: link-cur2; }
   .link-cur3 { grid-area: link-cur3; }
   .link-cur4 { grid-area: link-cur4; }
-  .link-cur5 { grid-area: link-cur5; align-self: center; }
+  .link-cur5 { grid-area: link-cur5; }
+  .link-cur6 { grid-area: link-cur6; }
 
   .arrow {
     font-size: 1.2rem;
@@ -189,7 +199,7 @@
         "title-cur title-cur"
         "link-cur1 link-cur2"
         "link-cur3 link-cur4"
-        "link-cur5 link-cur5"
+        "link-cur5 link-cur6"
         "img-cur img-cur";
       grid-template-rows: auto;
       grid-template-columns: 2fr;
@@ -203,17 +213,17 @@
     }
 
     .link-cur1 a, .link-cur2 a, .link-cur3 a,
-    .link-cur4 a, .link-cur5 a {
+    .link-cur4 a, .link-cur5 a, .link-cur6 a {
       font-size: large;
     }
 
     .link-cur1, .link-cur2, .link-cur3,
-    .link-cur4, .link-cur5 {
+    .link-cur4, .link-cur5, .link-cur6 {
       text-align: center;
     }
 
     .link-cur1 p, .link-cur2 p, .link-cur3 p,
-    .link-cur4 p, .link-cur5 p {
+    .link-cur4 p, .link-cur5 p, .link-cur6 p {
       display: none;
     }
 

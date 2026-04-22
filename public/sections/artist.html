@@ -7,16 +7,7 @@
     </pre>
   </aside>
 
-  <img class="image-art" src="public/images/tenderintelligences.webp" alt="Artistic work preview" id="image-art" />
-
-  <div class="link-art1">
-    <a href="https://tenderintelligenc.es/" target="_blank"
-      onmouseover="changeImageArt('public/images/tenderintelligences.webp')"
-      onfocus="changeImageArt('public/images/tenderintelligences.webp')">
-      <span class="arrow">↗</span> tender intelligences
-    </a>
-    <p>memory, archives and AI</p>
-  </div>
+  <img class="image-art" src="public/images/transmutacion.webp" alt="Artistic work preview" id="image-art" />
 
   <h1 class="title-art">artist</h1>
 
@@ -109,8 +100,8 @@
       ". img-art img-art img-art ."
       ". img-art img-art img-art ."
       ". img-art img-art img-art ."
-      ". img-art img-art img-art link-art1"
-      "title-art title-art . . link-art1"
+      ". img-art img-art img-art ."
+      "title-art title-art . . ."
       "title-art title-art . link-art2 link-art2"
       "title-art title-art . link-art2 link-art2"
       ". desc-art desc-art link-art3 link-art3"
@@ -159,11 +150,6 @@
     border-radius: 8px;
   }
 
-  .link-art1 {
-    grid-area: link-art1;
-    align-self: end;
-  }
-
   .link-art2 {
     grid-area: link-art2;
   }
@@ -186,8 +172,7 @@
       grid-template-areas:
         "title-art title-art"
         "img-art img-art"
-        "link-art1 link-art2"
-        "link-art3 link-art3";
+        "link-art2 link-art3";
       grid-template-rows: auto;
       grid-template-columns: 2fr;
       padding: 0.5rem;
@@ -200,19 +185,16 @@
       display: none;
     }
 
-    .link-art1 a,
     .link-art2 a,
     .link-art3 a {
       font-size: large;
     }
 
-    .link-art1,
     .link-art2,
     .link-art3 {
       text-align: center;
     }
 
-    .link-art1 p,
     .link-art2 p,
     .link-art3 p {
       display: none;
