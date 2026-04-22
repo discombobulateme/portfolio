@@ -1,0 +1,226 @@
+<div class="grid-layout9">
+  <aside class="ascii9">
+    <pre>
+   *  ✦  *
+  ✦ make ✦
+   *  ✦  *
+    </pre>
+  </aside>
+
+  <img class="image-art" src="public/images/tenderintelligences.webp" alt="Artistic work preview" id="image-art" />
+
+  <div class="link-art1">
+    <a href="https://tenderintelligenc.es/" target="_blank"
+      onmouseover="changeImageArt('public/images/tenderintelligences.webp')"
+      onfocus="changeImageArt('public/images/tenderintelligences.webp')">
+      <span class="arrow">↗</span> tender intelligences
+    </a>
+    <p>memory, archives and AI</p>
+  </div>
+
+  <h1 class="title-art">artist</h1>
+
+  <div class="link-art2">
+    <a href="#" target="_blank"
+      onmouseover="changeImageArt('public/images/transmutacion.webp')"
+      onfocus="changeImageArt('public/images/transmutacion.webp')">
+      <span class="arrow">↗</span> transmutación
+    </a>
+    <p>body, transition and transformation</p>
+  </div>
+
+  <p class="description-art">
+    art as a method of inquiry —
+    body, technology and the politics of matter
+  </p>
+
+  <div class="link-art3">
+    <a href="#" target="_blank"
+      onmouseover="changeImageArt('public/images/p-rainow.webp')"
+      onfocus="changeImageArt('public/images/p-rainow.webp')">
+      <span class="arrow">↗</span> performances
+    </a>
+    <p>live, digital and hybrid</p>
+  </div>
+
+  <aside class="ascii9b">
+    <pre>~·~·~·~·~·~·~·~·~·~·~·~·~·~  art is a practice, not an object  ~·~·~·~·~·~·~·~·~·~·~·~·~·~</pre>
+  </aside>
+</div>
+
+<script>
+  function changeImageArt(imageUrl) {
+    const imageElement = document.getElementById('image-art');
+    imageElement.src = imageUrl;
+  }
+
+  function moveRandomly() {
+    const gif = document.querySelector('.moving-gif');
+    const maxX = window.innerWidth - gif.offsetWidth;
+    const maxY = window.innerHeight - gif.offsetHeight;
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+    gif.style.left = `${x}px`;
+    gif.style.top = `${y}px`;
+  }
+
+  setInterval(moveRandomly, 7000);
+
+  function moveAscii9InOut() {
+    const ascii9 = document.querySelector('.ascii9');
+    ascii9.style.transform = 'translateX(20px) rotate(5deg)';
+    setTimeout(() => {
+      ascii9.style.transform = 'translateX(0px) rotate(0deg)';
+    }, 3000);
+  }
+
+  function moveAsciiPaint() {
+    const ascii9b = document.querySelector('.ascii9b');
+
+    ascii9b.style.transform = 'translateX(0)';
+    ascii9b.style.transition = 'transform 10s linear';
+
+    setTimeout(() => {
+      ascii9b.style.transform = 'translateX(150vw)';
+    }, 10000);
+
+    setTimeout(() => {
+      ascii9b.style.transform = 'translateX(-100vw)';
+      ascii9b.style.transition = 'none';
+    }, 20000);
+
+    setTimeout(() => {
+      ascii9b.style.transition = 'transform 10s linear';
+    }, 20200);
+  }
+
+  setInterval(moveAscii9InOut, 5000);
+  setInterval(moveAsciiPaint, 22000);
+</script>
+
+<style>
+  .grid-layout9 {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    grid-template-areas:
+      "ascii9 ascii9 . . ."
+      ". img-art img-art img-art ."
+      ". img-art img-art img-art ."
+      ". img-art img-art img-art ."
+      ". img-art img-art img-art link-art1"
+      "title-art title-art . . link-art1"
+      "title-art title-art . link-art2 link-art2"
+      "title-art title-art . link-art2 link-art2"
+      ". desc-art desc-art link-art3 link-art3"
+      ". ascii9b ascii9b link-art3 link-art3";
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+
+  .title-art {
+    grid-area: title-art;
+    color: #1a0033;
+    align-self: center;
+    margin: 0;
+  }
+
+  .description-art {
+    grid-area: desc-art;
+    align-self: center;
+  }
+
+  .ascii9 {
+    grid-area: ascii9;
+    font-family: monospace;
+    font-size: 14px;
+    transition: transform 0.3s ease-in-out;
+    align-self: end;
+  }
+
+  .ascii9b {
+    grid-area: ascii9b;
+    font-family: monospace;
+    white-space: pre;
+    font-size: 13px;
+    transform: translateX(-100vw);
+    transition: transform 10s linear;
+    align-self: center;
+    overflow: visible;
+  }
+
+  .image-art {
+    grid-area: img-art;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .link-art1 {
+    grid-area: link-art1;
+    align-self: end;
+  }
+
+  .link-art2 {
+    grid-area: link-art2;
+  }
+
+  .link-art3 {
+    grid-area: link-art3;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+
+  .grid-layout9 a {
+    color: #003300;
+  }
+
+  @media (max-width: 768px) {
+    .grid-layout9 {
+      grid-template-areas:
+        "title-art title-art"
+        "img-art img-art"
+        "link-art1 link-art2"
+        "link-art3 link-art3";
+      grid-template-rows: auto;
+      grid-template-columns: 2fr;
+      padding: 0.5rem;
+      gap: 0;
+    }
+
+    .ascii9,
+    .ascii9b,
+    .description-art {
+      display: none;
+    }
+
+    .link-art1 a,
+    .link-art2 a,
+    .link-art3 a {
+      font-size: large;
+    }
+
+    .link-art1,
+    .link-art2,
+    .link-art3 {
+      text-align: center;
+    }
+
+    .link-art1 p,
+    .link-art2 p,
+    .link-art3 p {
+      display: none;
+    }
+
+    .title-art {
+      text-align: center;
+      font-size: 4rem;
+    }
+  }
+</style>

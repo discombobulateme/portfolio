@@ -80,6 +80,18 @@ a:hover {
   background: linear-gradient(135deg, #ec840d, #6dfdf6);
 }
 
+.layout6 {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+}
+
+.layout7 {
+  background: linear-gradient(135deg, #96fbc4, #f9f586);
+}
+
+.layout8 {
+  background: linear-gradient(135deg, #c471ed, #12c2e9);
+}
+
 .moving-gif {
   position: absolute;
   width: 230px;
