@@ -134,16 +134,16 @@
     height: 100vh;
     padding: 2rem;
     grid-template-areas:
-      "img-cur img-cur . title-cur title-cur title-cur ."
-      "img-cur img-cur . title-cur title-cur title-cur ."
-      "img-cur img-cur ascii8 . . . ."
-      ". . link-cur1 link-cur1 link-cur2 link-cur2 ."
-      ". . link-cur1 link-cur1 link-cur2 link-cur2 ."
-      ". link-cur3 link-cur3 link-cur4 link-cur4 . ."
-      ". link-cur3 link-cur3 link-cur4 link-cur4 . ."
-      "desc-cur desc-cur link-cur5 link-cur5 link-cur6 link-cur6 ."
-      "desc-cur desc-cur link-cur5 link-cur5 link-cur6 link-cur6 ."
-      ". . . . . . .";
+      ". title-cur title-cur title-cur title-cur . ."
+      ". title-cur title-cur title-cur title-cur . ."
+      "link-cur1 link-cur1 . ascii8 . link-cur2 link-cur2"
+      "link-cur1 link-cur1 . . . link-cur2 link-cur2"
+      "link-cur3 link-cur3 . . . link-cur4 link-cur4"
+      "link-cur3 link-cur3 img-cur img-cur img-cur link-cur4 link-cur4"
+      "link-cur5 link-cur5 img-cur img-cur img-cur link-cur6 link-cur6"
+      "link-cur5 link-cur5 img-cur img-cur img-cur link-cur6 link-cur6"
+      ". . img-cur img-cur img-cur . ."
+      ". desc-cur desc-cur desc-cur desc-cur desc-cur .";
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
@@ -153,12 +153,14 @@
     grid-area: title-cur;
     color: #001a4d;
     align-self: center;
+    text-align: center;
     margin: 0;
   }
 
   .description-cur {
     grid-area: desc-cur;
     align-self: center;
+    text-align: center;
   }
 
   .ascii8 {
@@ -167,6 +169,7 @@
     font-size: 13px;
     transition: transform 0.3s ease-in-out;
     align-self: center;
+    text-align: center;
   }
 
   .image-cur {
@@ -174,15 +177,15 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 12px;
   }
 
-  .link-cur1 { grid-area: link-cur1; }
-  .link-cur2 { grid-area: link-cur2; }
-  .link-cur3 { grid-area: link-cur3; }
-  .link-cur4 { grid-area: link-cur4; }
-  .link-cur5 { grid-area: link-cur5; }
-  .link-cur6 { grid-area: link-cur6; }
+  .link-cur1 { grid-area: link-cur1; align-self: end; }
+  .link-cur2 { grid-area: link-cur2; align-self: end; text-align: right; }
+  .link-cur3 { grid-area: link-cur3; align-self: end; }
+  .link-cur4 { grid-area: link-cur4; align-self: end; text-align: right; }
+  .link-cur5 { grid-area: link-cur5; align-self: start; }
+  .link-cur6 { grid-area: link-cur6; align-self: start; text-align: right; }
 
   .arrow {
     font-size: 1.2rem;
