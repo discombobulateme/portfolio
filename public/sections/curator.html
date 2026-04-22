@@ -1,43 +1,61 @@
 <div class="grid-layout8">
-  <img class="image-cur" src="public/images/hack-nights.webp" alt="Curation and events preview" id="image-cur" />
-
-  <div class="link-cur1">
-    <a href="#" target="_blank"
-      onmouseover="changeImageCur('public/images/hack-nights.webp')"
-      onfocus="changeImageCur('public/images/hack-nights.webp')">
-      <span class="arrow">↗</span> events & spaces
-    </a>
-    <p>hackathons, salons and gatherings that center care</p>
-  </div>
-
-  <aside class="ascii8">
-    <pre>
-  ╔══════════╗
-  ║  select  ║
-  ║ amplify  ║
-  ║  share   ║
-  ╚══════════╝
-    </pre>
-  </aside>
-
-  <div class="link-cur2">
-    <a href="#" target="_blank"
-      onmouseover="changeImageCur('public/images/foss-backstage.webp')"
-      onfocus="changeImageCur('public/images/foss-backstage.webp')">
-      <span class="arrow">↗</span> talks & panels
-    </a>
-    <p>curating conversations and debate mediation</p>
-  </div>
+  <img class="image-cur" src="public/images/transmutacion.webp" alt="Curated exhibitions preview" id="image-cur" />
 
   <h1 class="title-cur">curator</h1>
 
-  <div class="link-cur3">
-    <a href="#" target="_blank"
-      onmouseover="changeImageCur('public/images/medhacker.webp')"
-      onfocus="changeImageCur('public/images/medhacker.webp')">
-      <span class="arrow">↗</span> programs
+  <aside class="ascii8">
+    <pre>
+╔══════════╗
+║  select  ║
+║ amplify  ║
+║  share   ║
+╚══════════╝
+    </pre>
+  </aside>
+
+  <div class="link-cur1">
+    <a href="https://hibrida.eca.usp.br/?lang=en" target="_blank"
+      onmouseover="changeImageCur('public/images/hack-nights.webp')"
+      onfocus="changeImageCur('public/images/hack-nights.webp')">
+      <span class="arrow">↗</span> Hibrida
     </a>
-    <p>fellowships and residencies fostering tomorrow's practices</p>
+    <p>São Paulo · Mexico City · 2014</p>
+  </div>
+
+  <div class="link-cur2">
+    <a href="https://izi.travel/en/2759-transmutacion-alquimias-del-espacio/es" target="_blank"
+      onmouseover="changeImageCur('public/images/transmutacion.webp')"
+      onfocus="changeImageCur('public/images/transmutacion.webp')">
+      <span class="arrow">↗</span> Transmutación
+    </a>
+    <p>alquimias del espacio · Mexico City · 2017</p>
+  </div>
+
+  <div class="link-cur3">
+    <a href="https://youtu.be/xxbQvwevBp4?si=GBCumJinSiOCLgnM" target="_blank"
+      onmouseover="changeImageCur('public/images/arqueologia0.webp')"
+      onfocus="changeImageCur('public/images/arqueologia0.webp')">
+      <span class="arrow">↗</span> Arqueologia de la autonomia
+    </a>
+    <p>Mexico City · 2018</p>
+  </div>
+
+  <div class="link-cur4">
+    <a href="https://17instituto.org/coloquio-xxv-arte-y-discapacidad-de-la-norma-al-nombre/" target="_blank"
+      onmouseover="changeImageCur('public/images/norma0.webp')"
+      onfocus="changeImageCur('public/images/norma0.webp')">
+      <span class="arrow">↗</span> Arte y "discapacidad"
+    </a>
+    <p>de la norma al nombre · Mexico City · 2018</p>
+  </div>
+
+  <div class="link-cur5">
+    <a href="https://izi.travel/ru/f68c-planetary-atoll-connecting-latin-american-dots/en" target="_blank"
+      onmouseover="changeImageCur('public/images/un.webp')"
+      onfocus="changeImageCur('public/images/un.webp')">
+      <span class="arrow">↗</span> Planetary Atoll
+    </a>
+    <p>Connecting Latin American Dots · Berlin · 2022</p>
   </div>
 
   <p class="description-cur">
@@ -81,16 +99,17 @@
     height: 100vh;
     padding: 2rem;
     grid-template-areas:
-      ". . . . img-cur img-cur img-cur"
-      "link-cur1 link-cur1 . . img-cur img-cur img-cur"
-      "link-cur1 link-cur1 . . img-cur img-cur img-cur"
-      ". . ascii8 ascii8 . . ."
-      ". . ascii8 ascii8 link-cur2 link-cur2 ."
-      "title-cur title-cur . . link-cur2 link-cur2 ."
-      "title-cur title-cur . link-cur3 link-cur3 . ."
-      "title-cur title-cur . link-cur3 link-cur3 . ."
-      ". desc-cur desc-cur desc-cur . . .";
-    grid-template-rows: repeat(9, 1fr);
+      "img-cur img-cur img-cur . title-cur title-cur title-cur"
+      "img-cur img-cur img-cur . title-cur title-cur title-cur"
+      "img-cur img-cur img-cur . . ascii8 ."
+      ". . . link-cur1 link-cur1 link-cur2 link-cur2"
+      ". . . link-cur1 link-cur1 link-cur2 link-cur2"
+      ". . link-cur3 link-cur3 link-cur4 link-cur4 ."
+      ". . link-cur3 link-cur3 link-cur4 link-cur4 ."
+      "desc-cur desc-cur desc-cur link-cur5 link-cur5 . ."
+      "desc-cur desc-cur desc-cur link-cur5 link-cur5 . ."
+      ". . . . . . .";
+    grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
   }
@@ -98,7 +117,7 @@
   .title-cur {
     grid-area: title-cur;
     color: #001a4d;
-    align-self: end;
+    align-self: center;
     margin: 0;
   }
 
@@ -123,18 +142,11 @@
     border-radius: 8px;
   }
 
-  .link-cur1 {
-    grid-area: link-cur1;
-    align-self: center;
-  }
-
-  .link-cur2 {
-    grid-area: link-cur2;
-  }
-
-  .link-cur3 {
-    grid-area: link-cur3;
-  }
+  .link-cur1 { grid-area: link-cur1; }
+  .link-cur2 { grid-area: link-cur2; }
+  .link-cur3 { grid-area: link-cur3; }
+  .link-cur4 { grid-area: link-cur4; }
+  .link-cur5 { grid-area: link-cur5; align-self: center; }
 
   .arrow {
     font-size: 1.2rem;
@@ -150,12 +162,13 @@
       grid-template-areas:
         "title-cur title-cur"
         "link-cur1 link-cur2"
-        "link-cur3 link-cur3"
+        "link-cur3 link-cur4"
+        "link-cur5 link-cur5"
         "img-cur img-cur";
       grid-template-rows: auto;
       grid-template-columns: 2fr;
       padding: 0.5rem;
-      gap: 0;
+      gap: 0.5rem;
     }
 
     .ascii8,
@@ -163,21 +176,18 @@
       display: none;
     }
 
-    .link-cur1 a,
-    .link-cur2 a,
-    .link-cur3 a {
+    .link-cur1 a, .link-cur2 a, .link-cur3 a,
+    .link-cur4 a, .link-cur5 a {
       font-size: large;
     }
 
-    .link-cur1,
-    .link-cur2,
-    .link-cur3 {
+    .link-cur1, .link-cur2, .link-cur3,
+    .link-cur4, .link-cur5 {
       text-align: center;
     }
 
-    .link-cur1 p,
-    .link-cur2 p,
-    .link-cur3 p {
+    .link-cur1 p, .link-cur2 p, .link-cur3 p,
+    .link-cur4 p, .link-cur5 p {
       display: none;
     }
 
