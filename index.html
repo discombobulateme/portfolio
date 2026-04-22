@@ -58,6 +58,21 @@
     <h1>Loading...</h1>
   </section> -->
 
+  <!-- Section nav -->
+  <nav class="section-nav" aria-label="Section navigation">
+    <ul>
+      <li><a href="#me" data-section="me">me</a></li>
+      <li><a href="#devrel" data-section="devrel">devrel</a></li>
+      <li><a href="#dev" data-section="dev">dev</a></li>
+      <li><a href="#opensource" data-section="opensource">open source</a></li>
+      <li><a href="#genderequity" data-section="genderequity">gender equity</a></li>
+      <li><a href="#accessibility" data-section="accessibility">accessibility</a></li>
+      <li><a href="#writing" data-section="writing">writing</a></li>
+      <li><a href="#curator" data-section="curator">curator</a></li>
+      <li><a href="#artist" data-section="artist">artist</a></li>
+    </ul>
+  </nav>
+
   <!-- Moving GIF -->
   <figure class="moving-gif">
     <img src="/public/gifs/peinado.gif" alt="Animated gifs from Paloma and her cat" />
@@ -114,6 +129,37 @@
   
     // Trigger ASCII movement every 5 seconds
     setInterval(moveAsciiInOut, 5000);
+
+    // Section nav — active tracking + click-to-scroll
+    const navLinks = document.querySelectorAll('.section-nav a');
+
+    function setActiveNav(id) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.section === id);
+      });
+    }
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActiveNav(entry.target.id);
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.section').forEach(s => sectionObserver.observe(s));
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById(link.dataset.section);
+        if (!target || isScrolling) return;
+        const idx = Array.from(document.querySelectorAll('.section')).indexOf(target);
+        if (idx === -1) return;
+        currentSection = idx;
+        isScrolling = true;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => { isScrolling = false; }, 900);
+      });
+    });
   </script>
 </body>
 </html>

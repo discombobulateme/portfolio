@@ -91,6 +91,58 @@ a:hover {
   background: linear-gradient(135deg, #c471ed, #12c2e9);
 }
 
+/* Section nav */
+.section-nav {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.75rem 1.2rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.section-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: flex-end;
+}
+
+.section-nav a {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  display: block;
+  text-align: right;
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.section-nav a:hover {
+  color: #e0e664;
+  text-decoration: none;
+  transform: translateX(-4px);
+}
+
+.section-nav a.active {
+  color: #f70de7;
+  font-size: 0.9rem;
+  text-shadow: 0 0 8px rgba(247, 13, 231, 0.55);
+}
+
+@media (max-width: 768px) {
+  .section-nav {
+    display: none;
+  }
+}
+
 .moving-gif {
   position: absolute;
   width: 230px;
